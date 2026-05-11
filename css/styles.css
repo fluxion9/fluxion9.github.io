@@ -1,3 +1,142 @@
+.social a svg {
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+    transition: color 0.2s;
+}
+@media only screen and (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    #lead-content h1 {
+        font-size: 1.2em !important;
+    }
+    #lead-content h2 {
+        font-size: 1em !important;
+    }
+    .project-card-image {
+        height: 140px;
+    }
+    .project-card-body {
+        padding: 16px 10px 14px 10px;
+    }
+    .project-card {
+        max-width: 98vw;
+    }
+    .social a {
+        padding: 8px;
+        font-size: 1.1em;
+    }
+    footer .row {
+        flex-direction: column;
+        text-align: center;
+    }
+    .copyright, .top, .social {
+        float: none !important;
+        text-align: center !important;
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+}
+#projects{padding:50px 15px;border-bottom:1px solid #dcd9d9;text-align:center}
+#projects h2{color:#374054;margin-bottom:50px}
+.projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    justify-items: center;
+}
+.project-card{
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(52,152,219,0.10), 0 1.5px 6px rgba(52,152,219,0.08);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.project-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(52,152,219,0.18), 0 3px 12px rgba(52,152,219,0.12);
+}
+.project-card-image {
+    width: 100%;
+    height: 200px;
+    background: #f2f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.project-card-image img {
+    max-width: 80%;
+    max-height: 160px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(52,152,219,0.10));
+}
+.project-card-body {
+    padding: 24px 20px 20px 20px;
+    text-align: left;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.project-card-body h3 {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #217dbb;
+    margin: 0 0 10px 0;
+}
+.project-card-body p {
+    color: #74808a;
+    font-size: 1em;
+    margin-bottom: 18px;
+    flex: 1;
+}
+.project-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 18px 0;
+    padding: 0;
+    list-style: none;
+}
+.project-skills li {
+    background: #e4e4ea;
+    color: #217dbb;
+    font-size: 0.95em;
+    font-weight: 600;
+    border-radius: 16px;
+    padding: 5px 14px;
+    display: inline-block;
+    margin: 0;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, color 0.2s;
+}
+.project-skills li:hover {
+    background: #3498db;
+    color: #fff;
+}
+}
+.project-link {
+    color: #fff;
+    background: #3498db;
+    border-radius: 20px;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-weight: 600;
+    align-self: flex-start;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(52,152,219,0.10);
+}
+.project-link:hover {
+    background: #217dbb;
+    color: #fff;
+    text-decoration: none;
+}
 /*!
     Title: Dev Portfolio Template
     Version: 1.2.2

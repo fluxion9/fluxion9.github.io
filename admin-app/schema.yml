@@ -286,6 +286,27 @@ collections:
           - { label: 'Photo or screenshot (fills the card)', value: photo }
           - { label: 'Logo (shown whole on a white background)', value: logo }
       - { label: 'Image description (for screen readers)', name: image_alt, widget: string, required: false }
+      - label: 'Gallery'
+        name: gallery
+        widget: list
+        required: false
+        label_singular: photo or video
+        summary: '{{caption}}'
+        hint: 'Photos and videos, in order. Visitors open them in a viewer from the project card. If Image above is empty, the first one is used for the card.'
+        fields:
+          - { label: 'Photo or video', name: media, widget: file, accept: media, hint: 'Upload a photo (up to 20 MB) or a video (up to 100 MB), or paste a Cloudinary link.' }
+          - { label: 'Caption', name: caption, widget: string, required: false }
+          - { label: 'Description (for screen readers)', name: alt, widget: string, required: false }
+      - label: 'Files'
+        name: files
+        widget: list
+        required: false
+        label_singular: file
+        summary: '{{label}}'
+        hint: 'Documents people can open from the project card, e.g. a schematic, datasheet or report.'
+        fields:
+          - { label: 'File', name: file, widget: file, accept: any, hint: 'PDF, Word, PowerPoint, Excel, ZIP and more (up to 20 MB), or paste a link.' }
+          - { label: 'Link text', name: label, widget: string, hint: 'e.g. Schematic (PDF)' }
       - { label: 'Tags', name: tags, widget: list, required: false, hint: 'Technologies and keywords, separated by commas.' }
       - label: 'Links'
         name: links

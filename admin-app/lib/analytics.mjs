@@ -242,8 +242,10 @@ async function visitorId(ip, ua) {
 }
 
 // download = résumé/CV PDF downloaded or printed; social = a profile link (GitHub, LinkedIn…);
-// enquiry = contact form sent; *_view = a project card or page section was on screen.
-const EVENTS = new Set(['download', 'email', 'call', 'whatsapp', 'enquiry', 'social', 'outbound', 'contact_click', 'project_view', 'project_click', 'project_filter', 'section_view']);
+// enquiry = contact form sent; *_view = a project card or page section was on screen;
+// media_open / video_play = a project gallery opened / a video in it played; attachment = a
+// project file (PDF, document…) opened. For these three the label is the project, the target the item.
+const EVENTS = new Set(['download', 'email', 'call', 'whatsapp', 'enquiry', 'social', 'outbound', 'contact_click', 'project_view', 'project_click', 'project_filter', 'section_view', 'media_open', 'video_play', 'attachment']);
 
 // One message from the website: a page view ("v"), time-on-page update ("p") or action ("e").
 // `origin` is the website's address from the request (e.g. https://fluxion9.github.io).
@@ -419,7 +421,17 @@ export async function report(range, site = '') {
       label, seen: (seen.get(label) || []).length, people: uniq(seen.get(label) || [], 'visitor'), clicks: (clicked.get(label) || []).length
     })).sort((a, b) => b.seen - a.seen || b.clicks - a.clicks);
   };
-  const projects = interest('project_view', 'project_click');
+  const perProject = name => groupBy(events.filter(event => event.name === name), event => event.label);
+  const [galleryOpens, videoPlays, fileOpens] = ['media_open', 'video_play', 'attachment'].map(perProject);
+  const projects = interest('project_view', 'project_click').map(row => ({
+    ...row,
+    galleryOpens: (galleryOpens.get(row.label) || []).length,
+    videoPlays: (videoPlays.get(row.label) || []).length,
+    fileOpens: (fileOpens.get(row.label) || []).length
+  }));
+  for (const label of new Set([...galleryOpens.keys(), ...fileOpens.keys()])) {
+    if (!projects.some(row => row.label === label)) projects.push({ label, seen: 0, people: 0, clicks: 0, galleryOpens: (galleryOpens.get(label) || []).length, videoPlays: (videoPlays.get(label) || []).length, fileOpens: (fileOpens.get(label) || []).length });
+  }
   const sectionsRead = interest('section_view', null);
 
   // Sources (first page of each visit)
@@ -463,7 +475,9 @@ export async function report(range, site = '') {
     contactFrom: labelled('contact_click'),
     enquiryTopics: labelled('enquiry'),
     outbound: labelled('outbound'),
-    filters: labelled('project_filter')
+    filters: labelled('project_filter'),
+    media: labelled('video_play', event => `${event.label}: ${event.target || 'video'} (played)`).concat(labelled('media_open', event => `${event.label}: ${event.target || 'gallery'}`)).sort((a, b) => b.count - a.count).slice(0, 15),
+    files: labelled('attachment', event => `${event.label}: ${event.target || 'file'}`)
   };
 
   // Broken links

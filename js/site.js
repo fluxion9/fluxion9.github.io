@@ -205,6 +205,7 @@
       }
       if (link.dataset.social) return action("social", link.dataset.social);
       const project = link.closest("[data-project]");
+      if (project && link.dataset.attachment) return action("attachment", project.dataset.project, link.dataset.attachment);
       if (project) return action("project_click", project.dataset.project, link.href);
       let url;
       try { url = new URL(link.href, location.href); } catch (error) { return; }
@@ -233,6 +234,80 @@
     }
     return action;
   })();
+
+  /* ---------- Project gallery viewer ---------- */
+  // Each project card with a gallery carries its photos and videos as JSON ([data-gallery]);
+  // the card's image button opens them in the <dialog data-lightbox>.
+  const lightbox = $("[data-lightbox]");
+  if (lightbox) {
+    const stage = $("[data-lightbox-stage]", lightbox);
+    const caption = $("[data-lightbox-caption]", lightbox);
+    const count = $("[data-lightbox-count]", lightbox);
+    const title = $("[data-lightbox-project]", lightbox);
+    const prev = $("[data-lightbox-prev]", lightbox);
+    const next = $("[data-lightbox-next]", lightbox);
+    let items = [];
+    let index = 0;
+    let project = "";
+    let opener = null;
+
+    const show = (to) => {
+      index = (to + items.length) % items.length;
+      const item = items[index];
+      let media;
+      if (item.type === "video") {
+        media = document.createElement("video");
+        media.controls = true;
+        media.playsInline = true;
+        media.preload = "metadata";
+        if (item.poster) media.poster = item.poster;
+        media.src = item.src;
+        media.addEventListener("play", () => track("video_play", project, item.caption || `Video ${index + 1}`), { once: true });
+      } else {
+        media = new Image();
+        media.decoding = "async";
+        media.alt = item.alt || "";
+        media.src = item.src;
+      }
+      stage.replaceChildren(media);
+      caption.textContent = item.caption || "";
+      caption.hidden = !item.caption;
+      count.textContent = items.length > 1 ? `${index + 1} / ${items.length}` : "";
+      prev.hidden = next.hidden = items.length < 2;
+    };
+    const close = () => { if (lightbox.open) lightbox.close(); };
+
+    document.addEventListener("click", (event) => {
+      const button = event.target instanceof Element ? event.target.closest("[data-gallery-open]") : null;
+      if (!button) return;
+      const card = button.closest("[data-project]");
+      try { items = JSON.parse(card.querySelector("[data-gallery]").textContent); } catch (error) { items = []; }
+      if (!items.length) return;
+      project = card.dataset.project;
+      opener = button;
+      title.textContent = project;
+      show(0);
+      if (lightbox.showModal) lightbox.showModal(); else lightbox.setAttribute("open", "");
+      track("media_open", project, items[0].caption || "Gallery");
+    });
+    prev.addEventListener("click", () => show(index - 1));
+    next.addEventListener("click", () => show(index + 1));
+    $("[data-lightbox-close]", lightbox).addEventListener("click", close);
+    // A click on the dark area around the photo closes the viewer.
+    lightbox.addEventListener("click", (event) => { if (event.target === lightbox || event.target === stage) close(); });
+    lightbox.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft" && items.length > 1) show(index - 1);
+      if (event.key === "ArrowRight" && items.length > 1) show(index + 1);
+    });
+    let touchX = 0;
+    stage.addEventListener("touchstart", (event) => { touchX = event.changedTouches[0].screenX; }, { passive: true });
+    stage.addEventListener("touchend", (event) => {
+      const moved = event.changedTouches[0].screenX - touchX;
+      if (Math.abs(moved) > 50 && items.length > 1) show(index + (moved > 0 ? -1 : 1));
+    }, { passive: true });
+    // Stop any video and return focus to the card when the viewer closes.
+    lightbox.addEventListener("close", () => { stage.replaceChildren(); opener?.focus(); });
+  }
 
   /* ---------- Contact form ---------- */
   // With data-endpoint set (a Formspree URL, from Site settings) the form posts there; otherwise it

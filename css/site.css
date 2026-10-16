@@ -339,6 +339,36 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .project-body .tags { margin-top: 16px; }
 .project-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: auto; padding-top: 20px; }
 .projects-empty { color: var(--ink-3); }
+.media-open { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: flex-end; padding: 14px; border: 0; background: transparent; cursor: zoom-in; }
+.media-open span { display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 999px; background: rgba(12, 14, 17, .78); color: #fff; font-size: .8rem; font-weight: 600; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background-color .2s; }
+.media-open .i { width: 15px; height: 15px; }
+.media-open:hover span, .media-open:focus-visible span { background: var(--accent); color: var(--accent-ink); }
+.project-files { display: grid; gap: 6px; margin-top: 16px; }
+.project-files a { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface-2); font-size: .9rem; font-weight: 600; transition: border-color .2s, color .2s; }
+.project-files a:hover { border-color: var(--accent); color: var(--accent); }
+.project-files .i { width: 17px; height: 17px; color: var(--accent); }
+.project-files span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.project-files small { font: 500 .7rem var(--mono); color: var(--ink-3); }
+
+/* Gallery viewer */
+.lightbox { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgba(8, 9, 11, .97); color: #eceef1; }
+.lightbox::backdrop { background: rgba(0, 0, 0, .8); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.lightbox[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.lightbox-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px var(--gutter); }
+.lightbox-title { margin: 0; font-size: .95rem; }
+.lightbox-title .mono { color: #a9b0bb; margin-left: 8px; }
+.lightbox .icon-btn { border-color: rgba(255, 255, 255, .2); color: #fff; }
+.lightbox .icon-btn:hover { background: rgba(255, 255, 255, .1); }
+.lightbox-stage { display: grid; place-items: center; min-height: 0; padding: 0 clamp(16px, 7vw, 96px); }
+.lightbox-stage img, .lightbox-stage video { max-width: 100%; max-height: 100%; border-radius: 10px; object-fit: contain; background: #000; }
+.lightbox-caption { margin: 0; padding: 14px var(--gutter) 22px; text-align: center; color: #c9ced6; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .2); background: rgba(20, 23, 28, .7); color: #fff; cursor: pointer; }
+.lightbox-nav:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.lightbox-nav .i { width: 22px; height: 22px; }
+.lightbox-nav[hidden] { display: none; }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+@media (max-width: 640px) { .lightbox-nav { top: auto; bottom: 64px; transform: none; } }
 
 /* Skills */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }

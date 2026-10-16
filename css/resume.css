@@ -124,3 +124,14 @@ img, svg { display: block; }
   .doc-resume .doc-head { padding-bottom: 4mm; }
   .doc-resume .doc-id h1 { font-size: 22pt; }
 }
+
+/* Fit to one page: used by build.mjs only when the résumé would run onto a second page. */
+@media print {
+  [data-fit] .doc-contact { gap: 1mm 3.5mm; font-size: 8.4pt; }
+  [data-fit] .doc-section { margin-top: 3.4mm; }
+  [data-fit] .doc-section h2 { margin-bottom: 2mm; }
+  [data-fit] .entry + .entry { margin-top: 2.2mm; }
+  [data-fit="2"], [data-fit="3"] { font-size: 9pt; line-height: 1.32; }
+  [data-fit="3"] { font-size: 8.7pt; }
+  [data-fit="3"] .doc-section { margin-top: 2.8mm; }
+}

@@ -13,7 +13,7 @@ import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { promisify } from 'node:util';
-import { cloudinary, compile, helpers } from './scripts/lib/template.mjs';
+import { cloudinary, compile, helpers, isVideo, videoFrame } from './scripts/lib/template.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 process.chdir(ROOT);
@@ -57,6 +57,27 @@ const isUrl = value => /^https?:\/\//i.test(String(value || ''));
 const assetPath = (value, transform = 'c_limit,w_1200') => !value ? '' : isUrl(value) ? cloudinary(value, transform) : '/' + String(value).replace(/^\/+/, '');
 const absolute = value => !value ? '' : isUrl(value) ? value : `${SITE_URL}${assetPath(value)}`;
 
+// Project galleries: photos and videos for the viewer, as JSON read by js/site.js. Paths are
+// relative to the home page (the only page with galleries); "<" is escaped so it can't end the script.
+const galleryOf = (project) => filled(project.gallery).filter(item => item.media).map(item => {
+  const video = isVideo(item.media);
+  const local = !isUrl(item.media);
+  return {
+    type: video ? 'video' : 'image',
+    src: local ? assetPath(item.media).slice(1) : video ? cloudinary(item.media, 'c_limit,h_1080') : cloudinary(item.media, 'c_limit,w_1800,h_1800'),
+    poster: video && !local ? videoFrame(item.media, 'so_1,c_limit,h_1080') : '',
+    thumb: video ? (local ? '' : videoFrame(item.media, 'so_1,c_fill,ar_16:10,w_960')) : assetPath(item.media, 'c_fill,g_auto,ar_16:10,w_960'),
+    caption: item.caption || '',
+    alt: item.alt || item.caption || project.name
+  };
+});
+// Project files: "…/schematic.pdf" → { url, label, kind: 'PDF' }.
+const filesOf = (project) => filled(project.files).filter(item => item.file).map(item => {
+  const url = isUrl(item.file) ? item.file : assetPath(item.file);
+  const ext = (String(item.file).split(/[?#]/)[0].match(/\.([a-z0-9]{1,5})$/i)?.[1] || '').toUpperCase();
+  return { url, label: item.label || decodeURIComponent(String(item.file).split(/[?#]/)[0].split('/').pop()), kind: ext };
+});
+
 const CATEGORIES = { hardware: 'Hardware & PCB', embedded: 'Embedded & IoT', web: 'Web', backend: 'Backend & APIs', mobile: 'Mobile & PWA', ml: 'AI / ML' };
 const SOCIAL_LABELS = { github: 'GitHub', linkedin: 'LinkedIn', x: 'X', facebook: 'Facebook', instagram: 'Instagram', youtube: 'YouTube', blog: 'Blog', web: 'Website' };
 // Short form for the résumé's contact line: "github.com/fluxion9".
@@ -82,15 +103,25 @@ const projects = (await readCollection('content/projects'))
     const categories = filled(project.categories).filter(key => CATEGORIES[key]);
     const links = filled(project.links).filter(link => link.url);
     const isLogo = project.image_style === 'logo';
+    const gallery = galleryOf(project);
+    // Card image: the chosen image, else the first photo or video frame in the gallery.
+    const cardImage = project.image
+      ? assetPath(project.image, isLogo ? 'c_limit,w_900' : 'c_fill,g_auto,ar_16:10,w_960')
+      : gallery.find(item => item.thumb)?.thumb || '';
     return {
       ...project,
       slug: slugify(project.name || project._file),
       categories,
       categoryKeys: categories.join(' '),
       categoryLabel: categories.map(key => CATEGORIES[key]).join(' · '),
-      isLogo,
-      imageSrc: assetPath(project.image, isLogo ? 'c_limit,w_900' : 'c_fill,g_auto,ar_16:10,w_960'),
-      imageAlt: project.image_alt || project.name,
+      isLogo: isLogo && Boolean(project.image),
+      imageSrc: cardImage,
+      imageAlt: project.image_alt || gallery[0]?.alt || project.name,
+      gallery,
+      galleryCount: gallery.length,
+      galleryLabel: `${gallery.length} ${gallery.some(item => item.type === 'video') ? (gallery.length === 1 ? 'video' : 'photos & videos') : (gallery.length === 1 ? 'photo' : 'photos')}`,
+      galleryJson: JSON.stringify(gallery.map(({ thumb, ...item }) => item)).replace(/</g, '\\u003c'),
+      files: filesOf(project),
       tags: filled(project.tags),
       highlights: filled(project.highlights),
       description: project.description || project.summary,
@@ -296,18 +327,26 @@ if (!chrome && process.env.CI) {
 } else if (!chrome) {
   console.warn('Chrome not found, so resume.pdf and cv.pdf were not updated. Install Google Chrome or set CHROME_PATH.');
 } else {
-  for (const variant of ['resume', 'cv']) {
-    const out = path.join(ROOT, `${variant}.pdf`);
-    const tmp = `${out}.tmp`;
+  const print = async (variant, out, fit) => {
     await run(chrome, [
       '--headless', '--disable-gpu', '--no-sandbox', '--hide-scrollbars', '--no-first-run',
       '--no-pdf-header-footer', '--print-to-pdf-no-header', '--run-all-compositor-stages-before-draw',
-      '--virtual-time-budget=15000', `--print-to-pdf=${tmp}`,
-      pathToFileURL(path.join(ROOT, variant, 'index.html')).href + '?pdf=1'
+      '--virtual-time-budget=15000', `--print-to-pdf=${out}`,
+      pathToFileURL(path.join(ROOT, variant, 'index.html')).href + `?pdf=1${fit ? `&fit=${fit}` : ''}`
     ], { timeout: 120_000 });
-    await writeFile(out, steadyPdf(await readFile(tmp)));
+    return readFile(out);
+  };
+  const pageCount = pdf => (pdf.toString('latin1').match(/\/Type\s*\/Page(?![s\w])/g) || []).length;
+  for (const variant of ['resume', 'cv']) {
+    const out = path.join(ROOT, `${variant}.pdf`);
+    const tmp = `${out}.tmp`;
+    let pdf = await print(variant, tmp, 0);
+    // The résumé should be one page: if it runs over, print again with tighter spacing.
+    for (let fit = 1; variant === 'resume' && fit <= 3 && pageCount(pdf) > 1; fit++) pdf = await print(variant, tmp, fit);
+    if (variant === 'resume' && pageCount(pdf) > 1) console.warn(`The résumé is ${pageCount(pdf)} pages. To fit one page, lower the bullets per job or the number of projects (Admin → Résumé & CV).`);
+    await writeFile(out, steadyPdf(pdf));
     await rm(tmp, { force: true });
   }
-  console.log('Printed resume.pdf and cv.pdf.');
+  console.log(`Printed resume.pdf and cv.pdf (résumé: ${pageCount(await readFile('resume.pdf'))} page${pageCount(await readFile('resume.pdf')) === 1 ? '' : 's'}).`);
 }
 

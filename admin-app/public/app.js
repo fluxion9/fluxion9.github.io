@@ -501,15 +501,20 @@
 
   // ---- photos & videos (Cloudinary)
   const isVideoUrl = url => /\/video\/upload\//.test(url) || /\.(mp4|webm|mov|m4v)(\?|$)/i.test(url);
+  // A document rather than a photo or video: Cloudinary "raw" files and common document types.
+  const isDocumentUrl = url => /\/raw\/upload\//.test(url) || /\.(pdf|docx?|pptx?|xlsx?|csv|txt|zip|rar|7z)(\?|$)/i.test(url);
+  const fileNameOf = url => decodeURIComponent(String(url).split(/[?#]/)[0].split('/').pop() || 'file');
   function cloudinaryThumb(url) {
     // A file in the website's repository, e.g. images/profile.jpg.
     if (!/^https?:\/\//i.test(url)) return `${state.me.siteUrl}/${String(url).replace(/^\/+/, '')}`;
     const match = String(url).match(/^(https:\/\/res\.cloudinary\.com\/[^/]+\/(image|video)\/upload\/)(.*)$/);
     if (!match) return url;
     const [, base, kind, rest] = match;
-    const transform = kind === 'video' ? 'so_1,c_fill,w_240,h_168' : 'c_fill,g_auto,w_240,h_168';
+    const pdf = /\.pdf(\?|$)/i.test(rest);
+    const transform = kind === 'video' ? 'so_1,c_fill,w_240,h_168' : pdf ? 'pg_1,c_fill,g_north,w_240,h_168' : 'c_fill,g_auto,w_240,h_168';
     const thumb = /^[a-z]{1,3}_[^/]*\//.test(rest) ? url : `${base}${transform}/${rest}`;
-    return kind === 'video' ? thumb.replace(/\.(mp4|webm|mov|m4v)(\?.*)?$/i, '.jpg') : thumb;
+    // Videos and PDFs are previewed as a still image (first frame / first page).
+    return kind === 'video' ? thumb.replace(/\.(mp4|webm|mov|m4v)(\?.*)?$/i, '.jpg') : pdf ? thumb.replace(/\.pdf(\?.*)?$/i, '.jpg') : thumb;
   }
 
   function mediaControl(field, obj, key, set) {
@@ -520,13 +525,19 @@
       const url = input.value.trim();
       if (!url) return preview.replaceChildren();
       const video = isVideoUrl(url);
-      preview.replaceChildren(h('img', { src: cloudinaryThumb(url), alt: '', loading: 'lazy' }), h('span', { class: 'tag', text: video ? 'Video' : 'Photo' }));
+      const pdf = /\.pdf(\?|$)/i.test(url) && /res\.cloudinary\.com\/[^/]+\/image\//.test(url);
+      if (isDocumentUrl(url) && !pdf) {
+        return preview.replaceChildren(h('span', { class: 'file-chip', text: (url.match(/\.([a-z0-9]+)(\?|$)/i)?.[1] || 'file').toUpperCase() }),
+          h('a', { class: 'tag', href: url, target: '_blank', rel: 'noopener', text: fileNameOf(url) }));
+      }
+      preview.replaceChildren(h('img', { src: cloudinaryThumb(url), alt: '', loading: 'lazy' }),
+        pdf ? h('a', { class: 'tag', href: url, target: '_blank', rel: 'noopener', text: `PDF · ${fileNameOf(url)}` }) : h('span', { class: 'tag', text: video ? 'Video' : 'Photo' }));
     };
     input.addEventListener('input', () => { set(input.value.trim()); drawPreview(); });
     const uploadButton = state.me.features.uploads
       ? h('button', { class: 'btn btn-ghost', type: 'button', onclick: async () => {
           try {
-            const url = await openUploader(field.widget === 'image');
+            const url = await openUploader(field.accept || (field.widget === 'image' ? 'images' : 'media'));
             if (url) { input.value = url; set(url); drawPreview(); }
           } catch (error) { toast(error.message); }
         } }, 'Upload…')
@@ -545,7 +556,13 @@
     });
     return widgetScript;
   }
-  async function openUploader(imagesOnly) {
+  // accept: 'images', 'media' (photos and videos) or 'any' (documents too).
+  const UPLOAD_FORMATS = {
+    images: ['jpg', 'jpeg', 'png', 'webp', 'gif', 'heic', 'svg'],
+    media: ['jpg', 'jpeg', 'png', 'webp', 'gif', 'heic', 'svg', 'mp4', 'mov', 'webm', 'm4v'],
+    any: null
+  };
+  async function openUploader(accept = 'images') {
     await loadUploadWidget();
     const { cloudName, apiKey, folder } = state.me.cloudinary;
     return new Promise(resolve => {
@@ -555,12 +572,14 @@
         uploadSignature: (callback, paramsToSign) => {
           api('POST', '/api/cloudinary/sign', { params: paramsToSign }).then(r => callback(r.signature)).catch(error => toast(error.message));
         },
-        sources: ['local', 'camera', 'url'],
+        sources: accept === 'any' ? ['local', 'url'] : ['local', 'camera', 'url'],
         multiple: false,
         maxFiles: 1,
-        clientAllowedFormats: imagesOnly ? ['jpg', 'jpeg', 'png', 'webp', 'gif', 'heic'] : ['jpg', 'jpeg', 'png', 'webp', 'gif', 'heic', 'mp4', 'mov', 'webm', 'm4v'],
-        maxImageFileSize: 10 * 1024 * 1024,
+        resourceType: 'auto',
+        ...(UPLOAD_FORMATS[accept] ? { clientAllowedFormats: UPLOAD_FORMATS[accept] } : {}),
+        maxImageFileSize: 20 * 1024 * 1024,
         maxVideoFileSize: 100 * 1024 * 1024,
+        maxRawFileSize: 20 * 1024 * 1024,
         showAdvancedOptions: false,
         cropping: false,
         showPoweredBy: false,
@@ -657,7 +676,7 @@
   const PAGE_LABELS = { home: 'Portfolio (home)', resume: 'Online résumé', cv: 'Online CV', other: 'Other', '404': 'Not found' };
   const ACTIONS = [
     ['download', 'Résumé & CV downloads'], ['enquiry', 'Messages sent'], ['email', 'Email taps'], ['call', 'Phone & WhatsApp taps'],
-    ['social', 'Social profile clicks'], ['project_click', 'Project link clicks'], ['contact_click', 'Clicks to Contact'], ['outbound', 'Links to other sites']
+    ['social', 'Social profile clicks'], ['project_click', 'Project link clicks'], ['media_open', 'Galleries opened'], ['attachment', 'Project files opened']
   ];
   const num = value => Math.round(value || 0).toLocaleString();
   const pct = value => `${Math.round((value || 0) * 100)}%`;
@@ -986,15 +1005,19 @@
         panel('First and last pages',
           h('h3', { text: 'Where visits start' }), bars(data.entryPages.map(row => ({ label: row.label, value: row.views }))),
           h('h3', { text: 'Where visits end' }), bars(data.exitPages.map(row => ({ label: row.label, value: row.views }))))),
-      h('div', { class: 'grid-2' },
-        panel('Projects',
-          table([{ label: 'Project', render: row => row.label }, { label: 'Seen', num: true, render: row => num(row.seen) }, { label: 'People', num: true, render: row => num(row.people) }, { label: 'Link clicks', num: true, render: row => num(row.clicks) }], data.projects, 'No project views yet.'),
+      panel('Projects',
+          table([{ label: 'Project', render: row => row.label }, { label: 'Seen', num: true, render: row => num(row.seen) }, { label: 'People', num: true, render: row => num(row.people) }, { label: 'Link clicks', num: true, render: row => num(row.clicks) },
+            { label: 'Gallery', num: true, render: row => num(row.galleryOpens) }, { label: 'Videos', num: true, render: row => num(row.videoPlays) }, { label: 'Files', num: true, render: row => num(row.fileOpens) }], data.projects, 'No project views yet.'),
+          A.media.length ? h('h3', { text: 'Photos & videos opened' }) : null,
+          A.media.length ? bars(A.media.map(row => ({ label: row.label, value: row.count }))) : null,
+          A.files.length ? h('h3', { text: 'Project files opened' }) : null,
+          A.files.length ? bars(A.files.map(row => ({ label: row.label, value: row.count }))) : null,
           A.filters.length ? h('h3', { text: 'Project filters used' }) : null,
           A.filters.length ? bars(A.filters.map(row => ({ label: row.label, value: row.count }))) : null,
-          note('Seen = the project card was on screen for at least a second. Link clicks = its buttons (e.g. “Visit site”) were used.')),
-        panel('Sections read',
-          table([{ label: 'Section', render: row => row.label }, { label: 'Seen', num: true, render: row => num(row.seen) }, { label: 'People', num: true, render: row => num(row.people) }], data.sectionsRead, 'No section views yet.'),
-          note('How often each part of the home page (About, Experience, Projects…) was on screen for at least a second.'))),
+          note('Seen = the project card was on screen for at least a second. Link clicks = its buttons (e.g. “Visit site”) were used. Gallery = its photos & videos were opened; Files = its documents.')),
+      panel('Sections read',
+        bars(data.sectionsRead.map(row => ({ label: row.label, value: row.seen, sub: `${num(row.people)} people` })), { empty: 'No section views yet.' }),
+        note('How often each part of the home page (About, Experience, Projects…) was on screen for at least a second.')),
       h('div', { class: 'grid-2' },
         panel('Countries', bars(AU.countries.map(row => ({ prefix: flag(row.key), label: row.label, value: row.visitors }))),
           note('Approximate, from the visitor’s time zone (or Cloudflare when available). Counts are people.')),

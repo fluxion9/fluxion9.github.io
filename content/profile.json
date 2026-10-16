@@ -10,16 +10,33 @@
     "Physicist"
   ],
   "tagline": "I build reliable software and intelligent hardware — from circuit boards and firmware to the APIs and cloud services that connect them.",
-  "photo": "images/profile.jpg",
+  "photo": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792160577/portfolio/dh8zbkdytgrnculdgjkp.jpg",
   "location": "Nigeria",
-  "email": "",
-  "phone": "",
+  "email": "isaacjavannewton@gmail.com",
+  "phone": "+2347039913826",
   "available": true,
   "availability": "Open to new opportunities",
   "socials": [
-    { "network": "github", "label": "GitHub", "url": "https://github.com/fluxion9" },
-    { "network": "linkedin", "label": "LinkedIn", "url": "https://linkedin.com/in/Isaac-J-Newton" },
-    { "network": "x", "label": "X", "url": "https://x.com/jne_wton" },
-    { "network": "facebook", "label": "Facebook", "url": "https://www.facebook.com/Isaac.Newton.Javan" }
-  ]
+    {
+      "network": "github",
+      "label": "GitHub",
+      "url": "https://github.com/fluxion9"
+    },
+    {
+      "network": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/Isaac-J-Newton"
+    },
+    {
+      "network": "x",
+      "label": "X",
+      "url": "https://x.com/jne_wton"
+    },
+    {
+      "network": "facebook",
+      "label": "Facebook",
+      "url": "https://www.facebook.com/Isaac.Newton.Javan"
+    }
+  ],
+  "whatsapp": "2347031002178"
 }

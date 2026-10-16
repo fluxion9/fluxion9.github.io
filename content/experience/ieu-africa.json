@@ -1,0 +1,19 @@
+{
+  "company": "IEU Africa",
+  "role": "Backend Engineer",
+  "published": true,
+  "on_resume": true,
+  "employment_type": "Remote",
+  "location": "",
+  "url": "",
+  "start": "2025",
+  "end": "",
+  "current": true,
+  "summary": "",
+  "highlights": [
+    "Build and maintain scalable backend services and APIs for modern web applications.",
+    "Implement authentication systems and secure access to platform features.",
+    "Run and maintain cloud-based infrastructure."
+  ],
+  "skills": []
+}

@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin-app/
+Disallow: /content/
+Disallow: /scripts/
+Disallow: /src/
+
+Sitemap: https://fluxion9.github.io/sitemap.xml

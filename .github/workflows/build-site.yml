@@ -1,0 +1,78 @@
+# Builds the portfolio whenever content, design or code changes on main (including every save from
+# the admin app), commits the generated pages and PDFs, and publishes the site to GitHub Pages.
+# One-time setup: Settings → Pages → Build and deployment → Source: "GitHub Actions", and
+# Settings → Actions → General → Workflow permissions: "Read and write permissions".
+name: Build and deploy site
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'admin-app/**'
+      - '**.md'
+      - 'LICENSE*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Saves made in quick succession build one after another, never in parallel.
+concurrency:
+  group: build-site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}   # latest main, including any earlier build commits
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # ubuntu-latest comes with Google Chrome, which prints resume.pdf and cv.pdf.
+      - name: Build pages and PDFs
+        run: node build.mjs
+
+      - name: Commit generated pages
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Pages already up to date."
+            exit 0
+          fi
+          git config user.name "portfolio-site-builder"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Build site from ${GITHUB_SHA::7}"
+          for attempt in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep 5
+          done
+          echo "Could not push the built pages." >&2
+          exit 1
+
+      # Only the files browsers need: not the admin app, content, templates or build scripts.
+      - name: Collect the public files
+        run: |
+          rsync -a --exclude .git --exclude .github --exclude admin-app --exclude content --exclude src \
+            --exclude scripts --exclude node_modules --exclude build.mjs --exclude 'package*.json' \
+            --exclude '*.md' --exclude 'LICENSE*' ./ _site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

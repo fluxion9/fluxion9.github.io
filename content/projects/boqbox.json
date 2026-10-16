@@ -1,0 +1,31 @@
+{
+  "published": true,
+  "featured": false,
+  "on_resume": true,
+  "order": 5,
+  "year": "",
+  "role": "",
+  "image_style": "logo",
+  "image_alt": "BoqBox logo",
+  "highlights": [],
+  "links": [
+    {
+      "label": "Visit site",
+      "url": "https://boqbox.ng"
+    }
+  ],
+  "name": "BoqBox",
+  "categories": [
+    "backend"
+  ],
+  "summary": "E-commerce and gifting platform for buying products or sending them as gifts, with recurring subscription-based deliveries.",
+  "description": "Worked on BoqBox, an e-commerce and gifting platform that enables users to purchase products for themselves or send them as gifts to others, with support for recurring subscription-based deliveries and seamless online shopping experiences.",
+  "image": "images/boqbox-logo.png",
+  "tags": [
+    "Backend Development",
+    "Node.js",
+    "Express.js",
+    "Paystack API",
+    "MongoDB"
+  ]
+}

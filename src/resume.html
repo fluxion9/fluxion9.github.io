@@ -1,0 +1,215 @@
+<!doctype html>
+<!-- The résumé (/resume/) and the CV (/cv/): one A4 document, two variants (doc.isCv). Built by
+     build.mjs, which also prints them to resume.pdf and cv.pdf with headless Chrome. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ seo.title }}</title>
+  <meta name="description" content="{{ seo.description }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta name="portfolio-analytics" content="{{ site.analytics_url }}" data-path="{{ route.path }}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap">
+  <link rel="stylesheet" href="{{ v "css/resume.css" }}">
+</head>
+<body class="doc-{{ doc.variant }}">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.31-5.47-1.34-5.47-5.94 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.63 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M9.1 23.69v-7.98H6.63v-3.67H9.1v-1.58c0-4.09 1.85-5.98 5.86-5.98.76 0 2.07.15 2.61.3v3.32c-.28-.03-.78-.04-1.39-.04-1.97 0-2.73.75-2.73 2.69v1.29h3.92l-.67 3.67h-3.25v8.25C19.4 23.24 24 18.18 24 12.04a12 12 0 1 0-14.9 11.65z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><path d="m9.75 15.02 5.75-3.27-5.75-3.27v6.54z"/></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-blog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+  </svg>
+
+  <div class="toolbar" role="toolbar" aria-label="Document">
+    <a class="tool tool-back" href="/">{{ icon "back" }}<span>Portfolio</span></a>
+    <div class="switch" role="group" aria-label="Version">
+      <a href="/resume/"{{#unless doc.isCv}} aria-current="page"{{/unless}}>Résumé</a>
+      <a href="/cv/"{{#if doc.isCv}} aria-current="page"{{/if}}>Full CV</a>
+    </div>
+    <div class="tool-group">
+      <button class="tool" type="button" data-print data-download="Printed {{ doc.title }}">{{ icon "print" }}<span>Print</span></button>
+      <a class="tool tool-primary" href="{{ doc.download.href }}" download="{{ doc.download.file }}" data-download="{{#if doc.isCv}}CV (PDF){{else}}Résumé (PDF){{/if}}">{{ icon "download" }}<span>Download PDF</span></a>
+    </div>
+  </div>
+
+  <main class="paper">
+    <header class="doc-head">
+      <div class="doc-id">
+        <h1>{{ profile.name }}</h1>
+        <p class="doc-headline">{{ profile.headline }}</p>
+        <ul class="doc-contact">
+          {{#if profile.location}}
+          <li>{{ icon "pin" }}{{ profile.location }}</li>
+          {{/if}}
+          {{#if profile.email}}
+          <li><a href="mailto:{{ profile.email }}">{{ icon "mail" }}{{ profile.email }}</a></li>
+          {{/if}}
+          {{#if profile.phone}}
+          <li><a href="{{ profile.phoneLink }}">{{ icon "phone" }}{{ profile.phone }}</a></li>
+          {{/if}}
+          <li><a href="{{ site.url }}/">{{ icon "web" }}{{ doc.siteShort }}</a></li>
+          {{#each doc.socials}}
+          <li><a href="{{ url }}">{{ icon network }}{{ short }}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+      {{#if doc.showPhoto}}
+      <img class="doc-photo" src="{{ profile.photoSrc }}" alt="" width="320" height="320">
+      {{/if}}
+    </header>
+
+    {{#if doc.summary}}
+    <section class="doc-section">
+      <h2>Profile</h2>
+      <p class="doc-summary">{{ doc.summary }}</p>
+    </section>
+    {{/if}}
+
+    {{#if doc.jobs}}
+    <section class="doc-section">
+      <h2>Experience</h2>
+      {{#each doc.jobs}}
+      <article class="entry">
+        <div class="entry-head">
+          <h3>{{ role }} <span class="entry-org">· {{ company }}</span></h3>
+          <span class="entry-date">{{#if meta}}{{ meta }} · {{/if}}{{ dates }}</span>
+        </div>
+        {{#if summary}}
+        <p>{{ summary }}</p>
+        {{/if}}
+        {{#if highlights}}
+        <ul>
+          {{#each highlights}}
+          <li>{{ . }}</li>
+          {{/each}}
+        </ul>
+        {{/if}}
+        {{#if skills}}
+        <p class="entry-tech"><b>Tools:</b> {{ join skills ", " }}</p>
+        {{/if}}
+      </article>
+      {{/each}}
+    </section>
+    {{/if}}
+
+    {{#if doc.projects}}
+    <section class="doc-section">
+      <h2>{{#if doc.isCv}}Projects{{else}}Selected projects{{/if}}</h2>
+      {{#each doc.projects}}
+      <article class="entry">
+        <div class="entry-head">
+          <h3>{{ name }}{{#if role}} <span class="entry-org">· {{ role }}</span>{{/if}}</h3>
+          <span class="entry-date">{{#if linkShort}}<a href="{{ links.0.url }}">{{ linkShort }}</a>{{else}}{{ year }}{{/if}}</span>
+        </div>
+        {{#if doc.isCv}}
+        <p>{{ description }}</p>
+        {{#if highlights}}
+        <ul>
+          {{#each highlights}}
+          <li>{{ . }}</li>
+          {{/each}}
+        </ul>
+        {{/if}}
+        {{else}}
+        <p>{{ summary }}</p>
+        {{/if}}
+        {{#if tags}}
+        <p class="entry-tech"><b>Tech:</b> {{ join tags ", " }}</p>
+        {{/if}}
+      </article>
+      {{/each}}
+    </section>
+    {{/if}}
+
+    {{#if skillGroups}}
+    <section class="doc-section">
+      <h2>Skills</h2>
+      <dl class="skills">
+        {{#each skillGroups}}
+        <div><dt>{{ name }}</dt><dd>{{ join skills " · " }}</dd></div>
+        {{/each}}
+      </dl>
+    </section>
+    {{/if}}
+
+    {{#if doc.schools}}
+    <section class="doc-section">
+      <h2>Education</h2>
+      {{#each doc.schools}}
+      <article class="entry">
+        <div class="entry-head">
+          <h3>{{ degree }}{{#if field}}, {{ field }}{{/if}}</h3>
+          <span class="entry-date">{{ dates }}</span>
+        </div>
+        <p class="entry-sub">{{ school }}{{#if location}} · {{ location }}{{/if}}{{#if grade}} · {{ grade }}{{/if}}</p>
+        {{#if details}}
+        <p>{{ details }}</p>
+        {{/if}}
+        {{#if highlights}}
+        <ul>
+          {{#each highlights}}
+          <li>{{ . }}</li>
+          {{/each}}
+        </ul>
+        {{/if}}
+      </article>
+      {{/each}}
+    </section>
+    {{/if}}
+
+    {{#if doc.certifications}}
+    <section class="doc-section">
+      <h2>Certifications</h2>
+      <ul class="plain-list">
+        {{#each doc.certifications}}
+        <li><b>{{ name }}</b>{{#if issuer}} — {{ issuer }}{{/if}}{{#if year}} <span class="entry-date">{{ year }}</span>{{/if}}</li>
+        {{/each}}
+      </ul>
+    </section>
+    {{/if}}
+
+    {{#if doc.awards}}
+    <section class="doc-section">
+      <h2>Awards &amp; honours</h2>
+      <ul class="plain-list">
+        {{#each doc.awards}}
+        <li><b>{{ title }}</b>{{#if issuer}} — {{ issuer }}{{/if}}{{#if year}} <span class="entry-date">{{ year }}</span>{{/if}}{{#if description}}<br><span class="muted">{{ description }}</span>{{/if}}</li>
+        {{/each}}
+      </ul>
+    </section>
+    {{/if}}
+
+    {{#if doc.languages}}
+    <section class="doc-section doc-inline">
+      <h2>Languages</h2>
+      <p>{{#each doc.languages}}{{#unless @first}} · {{/unless}}<b>{{ name }}</b>{{#if level}} ({{ level }}){{/if}}{{/each}}</p>
+    </section>
+    {{/if}}
+
+    {{#if doc.interests}}
+    <section class="doc-section doc-inline">
+      <h2>Interests</h2>
+      <p>{{ join doc.interests " · " }}</p>
+    </section>
+    {{/if}}
+
+    <footer class="doc-foot">Portfolio, projects and the latest version of this {{#if doc.isCv}}CV{{else}}résumé{{/if}}: <a href="{{ site.url }}/">{{ doc.siteShort }}</a></footer>
+  </main>
+
+  <script src="{{ v "js/site.js" }}" defer></script>
+</body>
+</html>

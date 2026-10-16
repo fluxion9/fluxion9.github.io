@@ -1,0 +1,25 @@
+{
+  "name": "Isaac J. Newton",
+  "headline": "Electronic & Computer Engineer",
+  "roles": [
+    "Embedded Systems Engineer",
+    "Backend Engineer",
+    "Hardware & PCB Designer",
+    "Software Engineer",
+    "Machine Learning Engineer",
+    "Physicist"
+  ],
+  "tagline": "I build reliable software and intelligent hardware — from circuit boards and firmware to the APIs and cloud services that connect them.",
+  "photo": "images/profile.jpg",
+  "location": "Nigeria",
+  "email": "",
+  "phone": "",
+  "available": true,
+  "availability": "Open to new opportunities",
+  "socials": [
+    { "network": "github", "label": "GitHub", "url": "https://github.com/fluxion9" },
+    { "network": "linkedin", "label": "LinkedIn", "url": "https://linkedin.com/in/Isaac-J-Newton" },
+    { "network": "x", "label": "X", "url": "https://x.com/jne_wton" },
+    { "network": "facebook", "label": "Facebook", "url": "https://www.facebook.com/Isaac.Newton.Javan" }
+  ]
+}

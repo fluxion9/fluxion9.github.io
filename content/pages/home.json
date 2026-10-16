@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Isaac J. Newton — Electronic & Computer Engineer",
+    "description": "Portfolio of Isaac J. Newton, an Electronic and Computer Engineer working across embedded systems, hardware and PCB design, backend engineering and full-stack development."
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "show_stats": true,
+    "primary_button": "Download résumé",
+    "secondary_button": "Get in touch"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Engineering where *hardware* meets *software*.",
+    "paragraphs": [
+      "I’m an Electronic and Computer Engineering graduate from the University of Nigeria, Nsukka, with a strong passion for building reliable software and intelligent hardware systems.",
+      "My work spans backend engineering, embedded systems, electronics and full-stack development. I enjoy solving complex technical problems, designing scalable systems, and turning ideas into functional products that create real-world impact."
+    ],
+    "focus": [
+      { "icon": "chip", "title": "Embedded systems & IoT", "text": "Firmware, microcontrollers, sensors and connected devices that work reliably in the field." },
+      { "icon": "board", "title": "Hardware & PCB design", "text": "Circuit design, PCB layout and testing — from schematic to a working board." },
+      { "icon": "server", "title": "Backend engineering", "text": "Scalable services, APIs, authentication and cloud infrastructure for modern applications." },
+      { "icon": "code", "title": "Full-stack & web", "text": "Responsive websites and progressive web apps that put hardware data in people’s hands." }
+    ]
+  },
+  "experience": { "eyebrow": "Experience", "title": "Where I’ve *worked*", "intro": "" },
+  "projects": { "eyebrow": "Projects", "title": "Selected *work*", "intro": "A mix of hardware, embedded and software projects — from PCB design to production web platforms." },
+  "skills": { "eyebrow": "Skills", "title": "Tools of the *trade*", "intro": "" },
+  "education": { "eyebrow": "Education", "title": "Education & *credentials*" },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let’s build something *together*.",
+    "text": "Have a role, a project or an idea in mind? Send me a message and I’ll get back to you.",
+    "reasons": ["Job opportunity", "Freelance / contract project", "Collaboration", "Just saying hello"]
+  }
+}

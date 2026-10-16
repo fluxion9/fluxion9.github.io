@@ -1,0 +1,19 @@
+{
+  "company": "Arone Energy",
+  "role": "Electronic Engineer",
+  "published": true,
+  "on_resume": true,
+  "employment_type": "",
+  "location": "",
+  "url": "",
+  "start": "2021",
+  "end": "2022",
+  "current": false,
+  "summary": "",
+  "highlights": [
+    "Designed, developed and tested electronic systems and embedded hardware solutions.",
+    "Handled circuit design and microcontroller integration.",
+    "Troubleshot and debugged electronic systems."
+  ],
+  "skills": []
+}

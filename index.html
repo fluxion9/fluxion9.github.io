@@ -1,324 +1,522 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Portfolio</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Isaac J. Newton — Electronic &amp; Computer Engineer</title>
+  <meta name="description" content="Portfolio of Isaac J. Newton, an Electronic and Computer Engineer working across embedded systems, hardware and PCB design, backend engineering and full-stack development.">
+  <link rel="canonical" href="https://fluxion9.github.io/">
+  <meta name="theme-color" content="#f6f6f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0e11" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Isaac J. Newton — Electronic &amp; Computer Engineer">
+  <meta property="og:description" content="Portfolio of Isaac J. Newton, an Electronic and Computer Engineer working across embedded systems, hardware and PCB design, backend engineering and full-stack development.">
+  <meta property="og:url" content="https://fluxion9.github.io/">
+  <meta property="og:image" content="https://fluxion9.github.io/images/profile.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="portfolio-analytics" content="" data-path="/">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+  <script>
+    // Theme before the first paint: the visitor's choice, else the device setting.
+    document.documentElement.classList.add('js');
+    (function () { try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {} })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="./css/site.css?v=a928f610">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Isaac J. Newton","jobTitle":"Electronic & Computer Engineer","url":"https://fluxion9.github.io","image":"https://fluxion9.github.io/images/profile.jpg","address":"Nigeria","worksFor":{"@type":"Organization","name":"IEU Africa"},"alumniOf":[{"@type":"EducationalOrganization","name":"University of Nigeria, Nsukka"}],"sameAs":["https://github.com/fluxion9","https://linkedin.com/in/Isaac-J-Newton","https://x.com/jne_wton","https://www.facebook.com/Isaac.Newton.Javan"]}</script>
 </head>
-
 <body>
-    <div id="mobile-menu-open" class="shadow-large">
-        <i class="fa fa-bars" aria-hidden="true"></i>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.31-5.47-1.34-5.47-5.94 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.63 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M9.1 23.69v-7.98H6.63v-3.67H9.1v-1.58c0-4.09 1.85-5.98 5.86-5.98.76 0 2.07.15 2.61.3v3.32c-.28-.03-.78-.04-1.39-.04-1.97 0-2.73.75-2.73 2.69v1.29h3.92l-.67 3.67h-3.25v8.25C19.4 23.24 24 18.18 24 12.04a12 12 0 1 0-14.9 11.65z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><path d="m9.75 15.02 5.75-3.27-5.75-3.27v6.54z"/></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-blog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></symbol>
+    <symbol id="i-board" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8h3l2 2h3M8 16h2l2-2h4"/><circle cx="7" cy="8" r="1"/><circle cx="17" cy="10" r="1"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="14" r="1"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/><path d="M6 7h.01M6 17h.01"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-signal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9zM19 15l.8 2.2 2.2.8-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Isaac J. Newton — back to top">
+        <span class="brand-mark" aria-hidden="true">IJN</span>
+        <span class="brand-name">Isaac J. Newton</span>
+      </a>
+      <nav class="site-nav" id="site-nav" data-menu aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-resume-mobile" href="./resume.pdf" download="Isaac-J-Newton-Resume.pdf" data-download="Résumé (PDF)"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg> Download résumé</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
+          <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm header-resume" href="./resume.pdf" download="Isaac-J-Newton-Resume.pdf" data-download="Résumé (PDF)"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg><span>Résumé</span></a>
+        <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+          <svg class="i i-open" aria-hidden="true"><use href="#i-menu"/></svg><svg class="i i-shut" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
     </div>
-    <!-- End #mobile-menu-toggle -->
-    <header>
-        <div id="mobile-menu-close">
-            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="status"><span class="status-dot" aria-hidden="true"></span>Open to new opportunities</p>
+          <p class="hero-kicker mono">Hi, I'm</p>
+          <h1 class="hero-name">Isaac J. Newton</h1>
+          <p class="hero-headline">Electronic &amp; Computer Engineer</p>
+          <p class="hero-roles mono" aria-hidden="true"><span class="prompt">&gt;</span> <span data-roles="Embedded Systems Engineer|Backend Engineer|Hardware &amp; PCB Designer|Software Engineer|Machine Learning Engineer|Physicist">Embedded Systems Engineer</span><span class="caret"></span></p>
+          <p class="visually-hidden">Embedded Systems Engineer, Backend Engineer, Hardware &amp; PCB Designer, Software Engineer, Machine Learning Engineer, Physicist</p>
+          <p class="hero-tagline">I build reliable software and intelligent hardware — from circuit boards and firmware to the APIs and cloud services that connect them.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="./resume.pdf" download="Isaac-J-Newton-Resume.pdf" data-download="Résumé (PDF)"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg> Download résumé</a>
+            <a class="btn btn-ghost" href="#contact">Get in touch <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          </div>
+          <div class="hero-meta">
+            <ul class="socials" aria-label="Profiles">
+              <li><a href="https://github.com/fluxion9" target="_blank" rel="noopener me" data-social="GitHub" aria-label="GitHub" title="GitHub"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+              <li><a href="https://linkedin.com/in/Isaac-J-Newton" target="_blank" rel="noopener me" data-social="LinkedIn" aria-label="LinkedIn" title="LinkedIn"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+              <li><a href="https://x.com/jne_wton" target="_blank" rel="noopener me" data-social="X" aria-label="X" title="X"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></a></li>
+              <li><a href="https://www.facebook.com/Isaac.Newton.Javan" target="_blank" rel="noopener me" data-social="Facebook" aria-label="Facebook" title="Facebook"><svg class="i" aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+            </ul>
+            <span class="hero-location"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg> Nigeria</span>
+          </div>
         </div>
-        <ul id="menu" class="shadow">
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#experience">Experience</a>
-            </li>
-            <li>
-                <a href="#education">Education</a>
-            </li>
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
+
+        <div class="hero-visual">
+          <figure class="portrait">
+            <div class="portrait-frame">
+              <img src="./images/profile.jpg" alt="Portrait of Isaac J. Newton" width="640" height="640" fetchpriority="high">
+            </div>
+            <svg class="portrait-traces" viewBox="0 0 200 200" aria-hidden="true"><path d="M0 40h40l20 20v40M200 150h-50l-20-20V90M140 0v30l15 15h45M60 200v-35l-15-15H0"/><circle cx="60" cy="100" r="3"/><circle cx="130" cy="90" r="3"/><circle cx="155" cy="45" r="3"/><circle cx="45" cy="150" r="3"/></svg>
+            <figcaption class="portrait-chip"><span class="mono">Currently</span>Backend Engineer at IEU Africa</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="container">
+        <dl class="stats">
+          <div class="stat"><dt>years of experience</dt><dd>5+</dd></div>
+          <div class="stat"><dt>projects shipped</dt><dd>5</dd></div>
+          <div class="stat"><dt>companies</dt><dd>4</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="about" data-section="About">
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <p class="eyebrow">About</p>
+          <h2 class="section-title">Engineering where <em>hardware</em> meets <em>software</em>.</h2>
+          <p>I’m an Electronic and Computer Engineering graduate from the University of Nigeria, Nsukka, with a strong passion for building reliable software and intelligent hardware systems.</p>
+          <p>My work spans backend engineering, embedded systems, electronics and full-stack development. I enjoy solving complex technical problems, designing scalable systems, and turning ideas into functional products that create real-world impact.</p>
+        </div>
+        <ul class="focus-grid">
+          <li class="focus-card reveal">
+            <span class="focus-icon"><svg class="i" aria-hidden="true"><use href="#i-chip"/></svg></span>
+            <h3>Embedded systems &amp; IoT</h3>
+            <p>Firmware, microcontrollers, sensors and connected devices that work reliably in the field.</p>
+          </li>
+          <li class="focus-card reveal" data-delay="80">
+            <span class="focus-icon"><svg class="i" aria-hidden="true"><use href="#i-board"/></svg></span>
+            <h3>Hardware &amp; PCB design</h3>
+            <p>Circuit design, PCB layout and testing — from schematic to a working board.</p>
+          </li>
+          <li class="focus-card reveal">
+            <span class="focus-icon"><svg class="i" aria-hidden="true"><use href="#i-server"/></svg></span>
+            <h3>Backend engineering</h3>
+            <p>Scalable services, APIs, authentication and cloud infrastructure for modern applications.</p>
+          </li>
+          <li class="focus-card reveal" data-delay="80">
+            <span class="focus-icon"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg></span>
+            <h3>Full-stack &amp; web</h3>
+            <p>Responsive websites and progressive web apps that put hardware data in people’s hands.</p>
+          </li>
         </ul>
-    </header>
-    <!-- End header -->
+      </div>
+    </section>
 
-    <div id="lead">
-        <div id="lead-content">
-            <h1 style="font-size:60px">Isaac J. Newton</h1>
-            <h2 style="font-size:30px">Physicist | Electronic Engineer | Computer Programmer | Software Engineer | Embedded Systems Engineer | Machine Learning Engineer</h2>
-            <a href="#" class="btn-rounded-white">Download Resume</a>
-        </div>
-        <!-- End #lead-content -->
-
-        <div id="lead-overlay"></div>
-
-        <div id="lead-down">
-            <span>
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </span>
-        </div>
-        <!-- End #lead-down -->
-    </div>
-    <!-- End #lead -->
-
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2 class="heading">About Me</h2>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                        I’m an Electronic and Computer Engineering graduate from University of Nigeria, Nsukka with a strong passion for building reliable software and intelligent hardware systems. My work spans backend engineering, embedded systems, electronics, and full-stack development. I enjoy solving complex technical problems, designing scalable systems, and turning ideas into functional products that create real-world impact.
-                    </p>
-                </div>
+    <section class="section section-alt" id="experience" data-section="Experience">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Experience</p>
+          <h2 class="section-title">Where I’ve <em>worked</em></h2>
+        </header>
+        <ol class="timeline">
+          <li class="job reveal">
+            <div class="job-when">
+              <span class="mono">2025 – Present</span>
+              <span class="pill pill-live">Current</span>
             </div>
-        </div>
-    </div>
-    <!-- End #about -->
-
-    <div id="experience" class="background-alt">
-        <h2 class="heading">Experience</h2>
-        <div id="experience-timeline">
-              <div data-date="July 2021 – Present">
-                <h3>Switch Electric</h3>
-                <h4>Chief Technology Officer</h4>
-                <p>
-                    Leading technology development across embedded systems, energy solutions, backend infrastructure, and product engineering.
-                </p>
+            <div class="job-card">
+              <h3 class="job-role">Backend Engineer</h3>
+              <p class="job-company">IEU Africa<span class="job-meta"> · Remote</span></p>
+              <ul class="bullets">
+                <li>Build and maintain scalable backend services and APIs for modern web applications.</li>
+                <li>Implement authentication systems and secure access to platform features.</li>
+                <li>Run and maintain cloud-based infrastructure.</li>
+              </ul>
             </div>
-
-            <div data-date="2021 – 2022">
-                <h3>Arone Energy</h3>
-                <h4>Electronic Engineer</h4>
-                <p>
-                    Designing, developing, and testing electronic systems and embedded hardware solutions, including circuit design, microcontroller integration, and system troubleshooting.
-                </p>
+          </li>
+          <li class="job reveal">
+            <div class="job-when">
+              <span class="mono">2024 – Present</span>
+              <span class="pill pill-live">Current</span>
             </div>
-
-            <div data-date="2024 – Present">
-                <h3>OneGrid Energies</h3>
-                <h4>Software and Hardware Engineer (Remote)</h4>
-                <p>
-                    Developing embedded and energy-monitoring systems, building and maintaining scalable web services, interfacing hardware components, and working on intelligent power and metering solutions.
-                </p>
-            </div>  
-
-            <div data-date="2025 – Present">
-                <h3>IEU Africa</h3>
-                <h4>Backend Engineer (Remote)</h4>
-                <p>
-                    Building and maintaining scalable backend services, APIs, authentication systems, and cloud-based infrastructure for modern web applications.
-                </p>
+            <div class="job-card">
+              <h3 class="job-role">Software and Hardware Engineer</h3>
+              <p class="job-company"><a href="https://onegridenergies.org" target="_blank" rel="noopener">OneGrid Energies</a><span class="job-meta"> · Remote</span></p>
+              <ul class="bullets">
+                <li>Develop embedded and energy-monitoring systems.</li>
+                <li>Build and maintain scalable web services.</li>
+                <li>Interface hardware components with software platforms.</li>
+                <li>Work on intelligent power and metering solutions.</li>
+              </ul>
             </div>
-        </div>
-    </div>
-    <!-- End #experience -->
-
-    <div id="education">
-        <h2 class="heading">Education</h2>
-        <div class="education-block">
-            <h3>University of Nigeria Nsukka</h3>
-            <span class="education-date">Sept 2019 - 2024</span>
-            <h4>Bachelor of Engineering in Electronic and Computer Engineering</h4>
-            <p>
-            </p>
-        </div>
-        <!-- End .education-block -->
-    </div>
-    <!-- End #education -->
-
-    <div id="projects" class="background-alt">
-        <h2 class="heading">Projects</h2>
-        <div class="container">
-            <div class="projects-grid">
-
-                <!-- Project Card 1 -->
-                <div class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/foot-sense-pcb.png" alt="pcb design" />
-                    </div>
-                    <div class="project-card-body">
-                        <h3>Foot Pressure Measurement Device (PCB Design)</h3>
-                        <p>
-                            Designed and developed a foot pressure measurement device using PCB design tools. The device captures and analyzes foot pressure data for applications in healthcare, sports science, and gait analysis, providing insights into foot health and performance.
-                        </p>
-                        <ul class="project-skills">
-                            <li>PCB Design</li>
-                            <li>EasyEDA</li>
-                            <li>Embedded Systems</li>
-                            <li>Sensor Integration</li>
-                            <li>Data Analysis</li>
-                        </ul>
-                        <a href="#" target="_blank" class="project-link">Learn More <i class="fa fa-external-link"></i></a>
-                    </div>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div class="project-card">
-                    <div class="project-card-image">
-                        <img src="https://res.cloudinary.com/dancbdjjj/image/upload/v1787310794/copy_of_solesense_crbc0j.jpg" alt="SoleSense PWA App" />
-                    </div>
-                    <div class="project-card-body">
-                        <h3>SoleSense PWA Insole Monitor</h3>
-                        <p>
-                            Built a progressive web app for SoleSense that connects to the foot pressure measurement device over Bluetooth, collects pressure data, and displays real-time monitoring and analysis for insole performance.
-                        </p>
-                        <ul class="project-skills">
-                            <li>PWA Development</li>
-                            <li>Bluetooth</li>
-                            <li>Data Visualization</li>
-                            <li>Sensor Data</li>
-                            <li>Health Tech</li>
-                        </ul>
-                        <a href="https://fluxion9.github.io/solesense/app/" target="_blank" class="project-link">Visit App <i class="fa fa-external-link"></i></a>
-                    </div>
-                </div>
-
-                <!-- Project Card 3 -->
-                <div class="project-card">
-                    <div class="project-card-image">
-                        <img src="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781616568/ONEGRID_BLACK_PNG_lavn7x.png" alt="OneGrid Energies Logo" />
-                    </div>
-                    <div class="project-card-body">
-                        <h3>OneGrid Energies</h3>
-                        <p>
-                            Built the OneGrid Energies website for a Nigerian clean energy company focused on renewable energy access, solar installations, recycling innovation, and community empowerment across underserved communities.
-                        </p>
-                        <ul class="project-skills">
-                            <li>Website Development</li>
-                            <li>Frontend Development</li>
-                            <li>Responsive Design</li>
-                            <li>Clean Energy</li>
-                            <li>Community Impact</li>
-                        </ul>
-                        <a href="https://onegridenergies.org" target="_blank" class="project-link">Visit Site <i class="fa fa-external-link"></i></a>
-                    </div>
-                </div>
-
-                <!-- Project Card 4 -->
-                <div class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/veriss-logo.png" alt="Veriss Payments Logo" />
-                    </div>
-                    <div class="project-card-body">
-                        <h3>Veriss Payments</h3>
-                        <p>
-                            Fintech payment infrastructure for secure, seamless digital transactions. Focused on payment processing, transaction management, and scalable financial operations.
-                        </p>
-                        <ul class="project-skills">
-                            <li>Backend Development</li>
-                            <li>Node.js</li>
-                            <li>Express.js</li>
-                            <li>MongoDB</li>
-                            <li>Paystack API</li>
-                        </ul>
-                        <a href="https://payment.veriss.co" target="_blank" class="project-link">Visit Site <i class="fa fa-external-link"></i></a>
-                    </div>
-                </div>
-
-                <!-- Project Card 5 -->
-                <div class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/boqbox-logo.png" alt="BoqBox Logo" />
-                    </div>
-                    <div class="project-card-body">
-                        <h3>BoqBox</h3>
-                        <p>
-                            Worked on BoqBox, an e-commerce and gifting platform that enables users to purchase products for themselves or send them as gifts to others, with support for recurring subscription-based deliveries and seamless online shopping experiences.
-                        </p>
-                        <ul class="project-skills">
-                            <li>Backend Development</li>
-                            <li>Node.js</li>
-                            <li>Express.js</li>
-                            <li>Paystack API</li>
-                            <li>MongoDB</li>
-                        </ul>
-                        <a href="https://boqbox.ng" target="_blank" class="project-link">Visit Site <i class="fa fa-external-link"></i></a>
-                    </div>
-                </div>
-                <!-- Add more project cards as needed -->
+          </li>
+          <li class="job reveal">
+            <div class="job-when">
+              <span class="mono">Jul 2021 – Present</span>
+              <span class="pill pill-live">Current</span>
             </div>
-        </div>
-    </div>
-    <!-- End #projects -->
-
-    <div id="skills">
-        <h2 class="heading">Skills</h2>
-        <ul class="project-skills main-skills">
-            <li>C</li>
-            <li>C++</li>
-            <li>PHP</li>
-            <li>Python</li>
-            <li>JavaScript</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Node.Js</li>
-            <li>Hardware / Circuit Design</li>
-            <li>PCB Design</li>
-            <li>Internet of Things (IoT)</li>
-        </ul>
-    </div>
-    <!-- End #skills -->
-
-    <div id="contact">
-        <h2>Get in Touch</h2>
-        <div id="contact-form">
-            <form method="POST" action="https://formspree.io/f/xjvzvoyw">
-                <input type="hidden" name="subject" value="Message from personal website" />
-                <input type="email" name="replyto" placeholder="Your email" required>
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-        <!-- End #contact-form -->
-    </div>
-    <!-- End #contact -->
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5 copyright">
-                    <p>
-                        Copyright &copy; <span id="current-year">2026</span> Isaac J. Newton
-                    </p>
-                </div>
-                <div class="col-sm-2 top">
-                    <span id="to-top">
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                    </span>
-                </div>
-                <div class="col-sm-5 social">
-                    <ul>
-                        <li>
-                            <a href="https://github.com/fluxion9" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://linkedin.com/in/Isaac-J-Newton" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/Isaac.Newton.Javan" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://x.com/jne_wton" target="_blank" aria-label="X (formerly Twitter)">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="vertical-align:middle;">
-                                    <path d="M17.53 3H21.5l-7.19 8.21L23 21h-7.5l-5.2-6.6L4.47 21H0.5l7.61-8.7L1 3h7.5l4.7 6 4.33-6zm-2.1 15.5h2.1l-5.7-7.2-1.5 1.7 5.1 5.5zm-8.86 0h2.1l2.1-2.5-1.5-1.7-2.7 4.2zM3.5 5l5.7 7.2 1.5-1.7L5.6 5H3.5zm13.1 0h-2.1l-2.1 2.5 1.5 1.7 2.7-4.2z"></path>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="job-card">
+              <h3 class="job-role">Chief Technology Officer</h3>
+              <p class="job-company">Switch Electric</p>
+              <ul class="bullets">
+                <li>Lead technology development across embedded systems and energy solutions.</li>
+                <li>Oversee backend infrastructure and product engineering.</li>
+              </ul>
             </div>
-        </div>
-    </footer>
-    <!-- End footer -->
+          </li>
+          <li class="job reveal">
+            <div class="job-when">
+              <span class="mono">2021 – 2022</span>
+            </div>
+            <div class="job-card">
+              <h3 class="job-role">Electronic Engineer</h3>
+              <p class="job-company">Arone Energy</p>
+              <ul class="bullets">
+                <li>Designed, developed and tested electronic systems and embedded hardware solutions.</li>
+                <li>Handled circuit design and microcontroller integration.</li>
+                <li>Troubleshot and debugged electronic systems.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/scripts.min.js"></script>
+    <section class="section" id="projects" data-section="Projects">
+      <div class="container">
+        <header class="section-head section-head-row reveal">
+          <div>
+            <p class="eyebrow">Projects</p>
+            <h2 class="section-title">Selected <em>work</em></h2>
+            <p class="section-intro">A mix of hardware, embedded and software projects — from PCB design to production web platforms.</p>
+          </div>
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter" type="button" data-filter="hardware" aria-pressed="false">Hardware &amp; PCB</button>
+            <button class="filter" type="button" data-filter="embedded" aria-pressed="false">Embedded &amp; IoT</button>
+            <button class="filter" type="button" data-filter="web" aria-pressed="false">Web</button>
+            <button class="filter" type="button" data-filter="backend" aria-pressed="false">Backend &amp; APIs</button>
+            <button class="filter" type="button" data-filter="mobile" aria-pressed="false">Mobile &amp; PWA</button>
+          </div>
+        </header>
+        <div class="projects" data-projects>
+          <article class="project reveal" data-project="Foot Pressure Measurement Device" data-categories="hardware embedded">
+            <div class="project-media">
+              <img src="./images/foot-sense-pcb.png" alt="PCB layout of the foot pressure measurement device" loading="lazy" decoding="async">
+              <span class="badge">Featured</span>
+            </div>
+            <div class="project-body">
+              <p class="project-meta mono">Hardware &amp; PCB · Embedded &amp; IoT</p>
+              <h3 class="project-title">Foot Pressure Measurement Device</h3>
+              <p class="project-summary">A foot pressure measurement device designed in EasyEDA that captures and analyses foot pressure data for healthcare, sports science and gait analysis.</p>
+              <ul class="tags">
+                <li>PCB Design</li>
+                <li>EasyEDA</li>
+                <li>Embedded Systems</li>
+                <li>Sensor Integration</li>
+                <li>Data Analysis</li>
+              </ul>
+            </div>
+          </article>
+          <article class="project reveal" data-project="SoleSense PWA Insole Monitor" data-categories="mobile embedded">
+            <div class="project-media">
+              <img src="https://res.cloudinary.com/dancbdjjj/image/upload/c_fill,g_auto,ar_16:10,w_960/f_auto,q_auto/v1787310794/copy_of_solesense_crbc0j.jpg" alt="SoleSense app screens" loading="lazy" decoding="async">
+              <span class="badge">Featured</span>
+            </div>
+            <div class="project-body">
+              <p class="project-meta mono">Mobile &amp; PWA · Embedded &amp; IoT</p>
+              <h3 class="project-title">SoleSense PWA Insole Monitor</h3>
+              <p class="project-summary">A progressive web app that connects to the SoleSense insole over Bluetooth for real-time foot pressure monitoring and analysis.</p>
+              <ul class="tags">
+                <li>PWA Development</li>
+                <li>Bluetooth</li>
+                <li>Data Visualization</li>
+                <li>Sensor Data</li>
+                <li>Health Tech</li>
+              </ul>
+              <div class="project-links">
+                <a class="link-arrow" href="https://fluxion9.github.io/solesense/app/" target="_blank" rel="noopener">Open the app <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </article>
+          <article class="project reveal" data-project="OneGrid Energies" data-categories="web">
+            <div class="project-media is-logo">
+              <img src="https://res.cloudinary.com/dj2ciluyx/image/upload/c_limit,w_900/f_auto,q_auto/v1781616568/ONEGRID_BLACK_PNG_lavn7x.png" alt="OneGrid Energies logo" loading="lazy" decoding="async">
+            </div>
+            <div class="project-body">
+              <p class="project-meta mono">Web</p>
+              <h3 class="project-title">OneGrid Energies</h3>
+              <p class="project-summary">Website for a Nigerian clean-energy company focused on renewable energy access, solar installations, recycling innovation and community empowerment.</p>
+              <ul class="tags">
+                <li>Website Development</li>
+                <li>Frontend Development</li>
+                <li>Responsive Design</li>
+                <li>Clean Energy</li>
+              </ul>
+              <div class="project-links">
+                <a class="link-arrow" href="https://onegridenergies.org" target="_blank" rel="noopener">Visit site <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </article>
+          <article class="project reveal" data-project="Veriss Payments" data-categories="backend">
+            <div class="project-media is-logo">
+              <img src="./images/veriss-logo.png" alt="Veriss Payments logo" loading="lazy" decoding="async">
+            </div>
+            <div class="project-body">
+              <p class="project-meta mono">Backend &amp; APIs</p>
+              <h3 class="project-title">Veriss Payments</h3>
+              <p class="project-summary">Fintech payment infrastructure for secure, seamless digital transactions, payment processing and transaction management.</p>
+              <ul class="tags">
+                <li>Backend Development</li>
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>MongoDB</li>
+                <li>Paystack API</li>
+              </ul>
+              <div class="project-links">
+                <a class="link-arrow" href="https://payment.veriss.co" target="_blank" rel="noopener">Visit site <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </article>
+          <article class="project reveal" data-project="BoqBox" data-categories="backend">
+            <div class="project-media is-logo">
+              <img src="./images/boqbox-logo.png" alt="BoqBox logo" loading="lazy" decoding="async">
+            </div>
+            <div class="project-body">
+              <p class="project-meta mono">Backend &amp; APIs</p>
+              <h3 class="project-title">BoqBox</h3>
+              <p class="project-summary">E-commerce and gifting platform for buying products or sending them as gifts, with recurring subscription-based deliveries.</p>
+              <ul class="tags">
+                <li>Backend Development</li>
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>Paystack API</li>
+                <li>MongoDB</li>
+              </ul>
+              <div class="project-links">
+                <a class="link-arrow" href="https://boqbox.ng" target="_blank" rel="noopener">Visit site <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="projects-empty" data-projects-empty hidden>No projects in this category yet.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="skills" data-section="Skills">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Skills</p>
+          <h2 class="section-title">Tools of the <em>trade</em></h2>
+        </header>
+        <div class="skills-grid">
+          <div class="skill-group reveal">
+            <h3><span class="mono">01</span> Languages</h3>
+            <ul class="chips">
+              <li>C</li>
+              <li>C++</li>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>PHP</li>
+              <li>HTML</li>
+              <li>CSS</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal" data-delay="80">
+            <h3><span class="mono">02</span> Backend &amp; web</h3>
+            <ul class="chips">
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>MongoDB</li>
+              <li>REST APIs</li>
+              <li>Paystack API</li>
+              <li>Progressive Web Apps</li>
+              <li>Responsive Design</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal" data-delay="160">
+            <h3><span class="mono">03</span> Hardware &amp; embedded</h3>
+            <ul class="chips">
+              <li>Embedded Systems</li>
+              <li>Hardware / Circuit Design</li>
+              <li>PCB Design</li>
+              <li>EasyEDA</li>
+              <li>Microcontrollers</li>
+              <li>Sensor Integration</li>
+              <li>Bluetooth</li>
+              <li>Internet of Things (IoT)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education" data-section="Education">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Education</p>
+          <h2 class="section-title">Education &amp; <em>credentials</em></h2>
+        </header>
+        <div class="edu-grid">
+          <article class="edu-card reveal">
+            <span class="edu-icon"><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg></span>
+            <div>
+              <p class="mono edu-dates">Sep 2019 – 2024</p>
+              <h3>Bachelor of Engineering (B.Eng.)</h3>
+              <p class="edu-field">Electronic and Computer Engineering</p>
+              <p class="edu-school">University of Nigeria, Nsukka · Nsukka, Nigeria</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" data-section="Résumé">
+      <div class="container">
+        <div class="resume-band reveal">
+          <div class="resume-band-copy">
+            <span class="resume-band-icon"><svg class="i" aria-hidden="true"><use href="#i-file"/></svg></span>
+            <div>
+              <h2>Prefer it on paper?</h2>
+              <p>Take my résumé with you — a concise one-pager, or the full CV with every project and detail.</p>
+            </div>
+          </div>
+          <div class="resume-band-actions">
+            <a class="btn btn-primary" href="./resume.pdf" download="Isaac-J-Newton-Resume.pdf" data-download="Résumé (PDF)"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg> Résumé (PDF)</a>
+            <a class="btn btn-ghost" href="./cv.pdf" download="Isaac-J-Newton-CV.pdf" data-download="CV (PDF)"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg> Full CV (PDF)</a>
+            <a class="link-arrow" href="./resume/">View online <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="contact" data-section="Contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 class="section-title">Let’s build something <em>together</em>.</h2>
+          <p class="section-intro">Have a role, a project or an idea in mind? Send me a message and I’ll get back to you.</p>
+          <ul class="contact-list">
+            <li><span class="contact-static"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span><small>Based in</small>Nigeria</span></span></li>
+          </ul>
+          <ul class="socials socials-lg" aria-label="Profiles">
+            <li><a href="https://github.com/fluxion9" target="_blank" rel="noopener me" data-social="GitHub" aria-label="GitHub" title="GitHub"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+            <li><a href="https://linkedin.com/in/Isaac-J-Newton" target="_blank" rel="noopener me" data-social="LinkedIn" aria-label="LinkedIn" title="LinkedIn"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+            <li><a href="https://x.com/jne_wton" target="_blank" rel="noopener me" data-social="X" aria-label="X" title="X"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></a></li>
+            <li><a href="https://www.facebook.com/Isaac.Newton.Javan" target="_blank" rel="noopener me" data-social="Facebook" aria-label="Facebook" title="Facebook"><svg class="i" aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+          </ul>
+        </div>
+        <form class="contact-form reveal" data-contact-form data-endpoint="https://formspree.io/f/xjvzvoyw" data-mailto="" novalidate>
+          <div class="form-row">
+            <label class="field">
+              <span>Your name</span>
+              <input name="name" type="text" autocomplete="name" required>
+            </label>
+            <label class="field">
+              <span>Your email</span>
+              <input name="email" type="email" autocomplete="email" required>
+            </label>
+          </div>
+          <label class="field">
+            <span>What’s this about?</span>
+            <select name="reason">
+              <option>Job opportunity</option>
+              <option>Freelance / contract project</option>
+              <option>Collaboration</option>
+              <option>Just saying hello</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Message</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <input class="visually-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_subject" value="New message from your portfolio">
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit"><svg class="i" aria-hidden="true"><use href="#i-send"/></svg> Send message</button>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">IJN</span><span class="brand-name">Isaac J. Newton</span></a>
+        <p class="footer-note">© 2026 Isaac J. Newton · Electronic &amp; Computer Engineer</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="./resume/">Résumé</a>
+        <a href="./cv/">CV</a>
+        <a href="#contact">Contact</a>
+        <a class="to-top" href="#top"><svg class="i" aria-hidden="true"><use href="#i-arrow-up"/></svg> Back to top</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="./js/site.js?v=8e5715f6" defer></script>
 </body>
-
 </html>

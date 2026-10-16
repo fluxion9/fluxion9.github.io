@@ -1,0 +1,30 @@
+{
+  "published": true,
+  "featured": false,
+  "on_resume": true,
+  "order": 3,
+  "year": "",
+  "role": "",
+  "image_style": "logo",
+  "image_alt": "OneGrid Energies logo",
+  "highlights": [],
+  "links": [
+    {
+      "label": "Visit site",
+      "url": "https://onegridenergies.org"
+    }
+  ],
+  "name": "OneGrid Energies",
+  "categories": [
+    "web"
+  ],
+  "summary": "Website for a Nigerian clean-energy company focused on renewable energy access, solar installations, recycling innovation and community empowerment.",
+  "description": "Built the OneGrid Energies website for a Nigerian clean energy company focused on renewable energy access, solar installations, recycling innovation, and community empowerment across underserved communities.",
+  "image": "https://res.cloudinary.com/dj2ciluyx/image/upload/v1781616568/ONEGRID_BLACK_PNG_lavn7x.png",
+  "tags": [
+    "Website Development",
+    "Frontend Development",
+    "Responsive Design",
+    "Clean Energy"
+  ]
+}

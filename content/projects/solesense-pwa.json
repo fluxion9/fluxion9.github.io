@@ -1,0 +1,32 @@
+{
+  "published": true,
+  "featured": true,
+  "on_resume": true,
+  "order": 2,
+  "year": "",
+  "role": "",
+  "image_style": "photo",
+  "image_alt": "SoleSense app screens",
+  "highlights": [],
+  "links": [
+    {
+      "label": "Open the app",
+      "url": "https://fluxion9.github.io/solesense/app/"
+    }
+  ],
+  "name": "SoleSense PWA Insole Monitor",
+  "categories": [
+    "mobile",
+    "embedded"
+  ],
+  "summary": "A progressive web app that connects to the SoleSense insole over Bluetooth for real-time foot pressure monitoring and analysis.",
+  "description": "Built a progressive web app for SoleSense that connects to the foot pressure measurement device over Bluetooth, collects pressure data, and displays real-time monitoring and analysis for insole performance.",
+  "image": "https://res.cloudinary.com/dancbdjjj/image/upload/v1787310794/copy_of_solesense_crbc0j.jpg",
+  "tags": [
+    "PWA Development",
+    "Bluetooth",
+    "Data Visualization",
+    "Sensor Data",
+    "Health Tech"
+  ]
+}

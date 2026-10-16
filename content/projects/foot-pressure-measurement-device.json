@@ -1,0 +1,27 @@
+{
+  "published": true,
+  "featured": true,
+  "on_resume": true,
+  "order": 1,
+  "year": "",
+  "role": "",
+  "image_style": "photo",
+  "image_alt": "PCB layout of the foot pressure measurement device",
+  "highlights": [],
+  "links": [],
+  "name": "Foot Pressure Measurement Device",
+  "categories": [
+    "hardware",
+    "embedded"
+  ],
+  "summary": "A foot pressure measurement device designed in EasyEDA that captures and analyses foot pressure data for healthcare, sports science and gait analysis.",
+  "description": "Designed and developed a foot pressure measurement device using PCB design tools. The device captures and analyses foot pressure data for applications in healthcare, sports science and gait analysis, providing insights into foot health and performance.",
+  "image": "images/foot-sense-pcb.png",
+  "tags": [
+    "PCB Design",
+    "EasyEDA",
+    "Embedded Systems",
+    "Sensor Integration",
+    "Data Analysis"
+  ]
+}

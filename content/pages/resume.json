@@ -1,0 +1,12 @@
+{
+  "summary": "Electronic and Computer Engineer (B.Eng., University of Nigeria, Nsukka) working across embedded systems, electronics, backend engineering and full-stack development. I build reliable software and intelligent hardware, design scalable systems, and turn ideas into functional products with real-world impact.",
+  "resume": {
+    "max_highlights": 3,
+    "max_projects": 3,
+    "show_photo": false
+  },
+  "cv": {
+    "show_photo": true
+  },
+  "file_name": "Isaac-J-Newton"
+}

@@ -1,0 +1,7 @@
+{
+  "groups": [
+    { "name": "Languages", "skills": ["C", "C++", "Python", "JavaScript", "PHP", "HTML", "CSS"] },
+    { "name": "Backend & web", "skills": ["Node.js", "Express.js", "MongoDB", "REST APIs", "Paystack API", "Progressive Web Apps", "Responsive Design"] },
+    { "name": "Hardware & embedded", "skills": ["Embedded Systems", "Hardware / Circuit Design", "PCB Design", "EasyEDA", "Microcontrollers", "Sensor Integration", "Bluetooth", "Internet of Things (IoT)"] }
+  ]
+}

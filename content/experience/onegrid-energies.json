@@ -1,0 +1,20 @@
+{
+  "company": "OneGrid Energies",
+  "role": "Software and Hardware Engineer",
+  "published": true,
+  "on_resume": true,
+  "employment_type": "Remote",
+  "location": "",
+  "url": "https://onegridenergies.org",
+  "start": "2024",
+  "end": "",
+  "current": true,
+  "summary": "",
+  "highlights": [
+    "Develop embedded and energy-monitoring systems.",
+    "Build and maintain scalable web services.",
+    "Interface hardware components with software platforms.",
+    "Work on intelligent power and metering solutions."
+  ],
+  "skills": []
+}

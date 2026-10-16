@@ -1,0 +1,322 @@
+# Admin app: the content sections and the fields you see when editing the portfolio.
+# Each folder collection edits one JSON file per item in content/<folder>/; each "files" collection
+# edits fixed files. Widgets: string, text, number, boolean, select (options, multiple), image, file,
+# list (field / fields), object (fields, collapsed). Add `required: false` for optional fields and a
+# `hint` to explain a field. Changes here apply after the app is redeployed.
+
+site_url: https://fluxion9.github.io
+
+# Reusable field definitions ───────────────────────────────────────────────────────────────────
+x-hints:
+  heading: &heading_hint 'Wrap words in \*asterisks\* to show them in the accent colour, e.g. Selected \*work\*.'
+  date: &date_pattern ['^\d{4}(-(0[1-9]|1[0-2]))?$', 'Use YYYY or YYYY-MM, e.g. 2021 or 2021-07.']
+x-section: &section
+  widget: object
+  collapsed: true
+  fields:
+    - { label: 'Small label', name: eyebrow, widget: string }
+    - { label: 'Heading', name: title, widget: string, hint: *heading_hint }
+    - { label: 'Introduction', name: intro, widget: text, required: false }
+x-on-resume: &on_resume { label: 'Include on résumé', name: on_resume, widget: boolean, default: true, hint: 'The one-page résumé (resume.pdf) only shows items with this on. The full CV shows everything that is published.' }
+x-published: &published { label: 'Published', name: published, widget: boolean, default: true, hint: 'Turn off to hide it everywhere without deleting it.' }
+
+collections:
+  # ── Profile & page text ─────────────────────────────────────────────────────────────────────
+  - name: profile
+    label: Profile & pages
+    description: 'Your name, headline, photo, contact details and social links; skills; certifications; and the text on each section of the site.'
+    files:
+      - label: Profile
+        name: profile
+        file: content/profile.json
+        description: 'Used at the top of the site, in the footer, and at the top of your résumé and CV.'
+        fields:
+          - { label: 'Full name', name: name, widget: string }
+          - { label: 'Headline', name: headline, widget: string, hint: 'Your main title, e.g. Electronic & Computer Engineer. Shown on the site and under your name on the résumé.' }
+          - { label: 'Roles', name: roles, widget: list, field: { label: Role, name: role, widget: string }, hint: 'Rotate one by one at the top of the home page, e.g. Embedded Systems Engineer.' }
+          - { label: 'Tagline', name: tagline, widget: text, hint: 'One or two sentences under your name.' }
+          - { label: 'Photo', name: photo, widget: image, required: false, hint: 'A square photo works best. Upload one, or use a path in the repository such as images/profile.jpg.' }
+          - { label: 'Location', name: location, widget: string, required: false, hint: 'e.g. Enugu, Nigeria' }
+          - { label: 'Email', name: email, widget: string, required: false, hint: 'Shown on the site, résumé and CV. Leave empty to hide (the contact form still works).' }
+          - { label: 'Phone', name: phone, widget: string, required: false, hint: 'As it should appear, e.g. +234 800 000 0000. Leave empty to hide.' }
+          - { label: 'WhatsApp number', name: whatsapp, widget: string, required: false, pattern: ['^\d{8,15}$', 'Digits only, with the country code, e.g. 2348000000000.'], hint: 'Digits only with country code. Leave empty to hide the WhatsApp link.' }
+          - { label: 'Open to opportunities', name: available, widget: boolean, default: true, hint: 'Shows a green status badge at the top of the site.' }
+          - { label: 'Status text', name: availability, widget: string, required: false, hint: 'e.g. Open to new opportunities' }
+          - label: 'Social links'
+            name: socials
+            widget: list
+            required: false
+            summary: '{{label}}'
+            fields:
+              - label: Network
+                name: network
+                widget: select
+                options:
+                  - { label: GitHub, value: github }
+                  - { label: LinkedIn, value: linkedin }
+                  - { label: X (Twitter), value: x }
+                  - { label: Facebook, value: facebook }
+                  - { label: Instagram, value: instagram }
+                  - { label: YouTube, value: youtube }
+                  - { label: Medium / blog, value: blog }
+                  - { label: Other website, value: web }
+              - { label: 'Label', name: label, widget: string, hint: 'e.g. GitHub' }
+              - { label: 'Link', name: url, widget: string, pattern: ['^https?://', 'Start with https://'] }
+
+      - label: Skills
+        name: skills
+        file: content/skills.json
+        description: 'Skill groups on the site and on your résumé and CV.'
+        fields:
+          - label: 'Skill groups'
+            name: groups
+            widget: list
+            label_singular: group
+            summary: '{{name}}'
+            fields:
+              - { label: 'Group name', name: name, widget: string, hint: 'e.g. Languages, Backend & web, Hardware & embedded' }
+              - { label: 'Skills', name: skills, widget: list, hint: 'Separate skills with commas.' }
+
+      - label: Certifications, awards & languages
+        name: credentials
+        file: content/credentials.json
+        description: 'Each list appears on the site and CV only when it has something in it.'
+        fields:
+          - label: 'Certifications'
+            name: certifications
+            widget: list
+            required: false
+            label_singular: certification
+            summary: '{{name}} — {{issuer}}'
+            fields:
+              - { label: 'Name', name: name, widget: string }
+              - { label: 'Issued by', name: issuer, widget: string, required: false }
+              - { label: 'Year', name: year, widget: string, required: false }
+              - { label: 'Link to credential', name: url, widget: string, required: false }
+              - *on_resume
+          - label: 'Awards & honours'
+            name: awards
+            widget: list
+            required: false
+            label_singular: award
+            summary: '{{title}}'
+            fields:
+              - { label: 'Title', name: title, widget: string }
+              - { label: 'Awarded by', name: issuer, widget: string, required: false }
+              - { label: 'Year', name: year, widget: string, required: false }
+              - { label: 'Description', name: description, widget: text, required: false }
+              - *on_resume
+          - label: 'Languages'
+            name: languages
+            widget: list
+            required: false
+            label_singular: language
+            summary: '{{name}} — {{level}}'
+            fields:
+              - { label: 'Language', name: name, widget: string }
+              - { label: 'Level', name: level, widget: string, required: false, hint: 'e.g. Native, Fluent, Professional' }
+          - { label: 'Interests', name: interests, widget: list, required: false, hint: 'Shown on the CV only. Separate with commas.' }
+
+      - label: Home page text
+        name: home
+        file: content/pages/home.json
+        description: 'Headings and text for each section of the home page, and how it appears in Google.'
+        fields:
+          - label: Search & link previews
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - { label: 'Page title', name: title, widget: string, hint: 'Shown in Google results and browser tabs (about 50–60 characters).' }
+              - { label: 'Description', name: description, widget: text, hint: 'One or two sentences shown in Google results and link previews.' }
+              - { label: 'Link preview image', name: image, widget: image, required: false, hint: 'Optional, ideally 1200×630. Empty = your photo.' }
+          - label: Top of the page
+            name: hero
+            widget: object
+            fields:
+              - { label: 'Greeting before your name', name: greeting, widget: string, required: false, hint: 'e.g. Hi, I''m' }
+              - { label: 'Show numbers (years, projects, companies)', name: show_stats, widget: boolean, default: true, hint: 'Worked out from your experience and projects.' }
+              - { label: 'Main button', name: primary_button, widget: string, hint: 'Downloads your résumé, e.g. Download résumé' }
+              - { label: 'Second button', name: secondary_button, widget: string, hint: 'Scrolls to the contact form, e.g. Get in touch' }
+          - label: About
+            name: about
+            widget: object
+            collapsed: true
+            fields:
+              - { label: 'Small label', name: eyebrow, widget: string }
+              - { label: 'Heading', name: title, widget: string, hint: *heading_hint }
+              - { label: 'Paragraphs', name: paragraphs, widget: list, field: { label: Paragraph, name: paragraph, widget: text } }
+              - label: 'What I do'
+                name: focus
+                widget: list
+                required: false
+                summary: '{{title}}'
+                hint: 'Up to four cards beside the about text.'
+                max: 6
+                fields:
+                  - label: Icon
+                    name: icon
+                    widget: select
+                    options:
+                      - { label: 'Chip', value: chip }
+                      - { label: 'Circuit board', value: board }
+                      - { label: 'Server', value: server }
+                      - { label: 'Code', value: code }
+                      - { label: 'Wireless signal', value: signal }
+                      - { label: 'AI sparkle', value: sparkle }
+                      - { label: 'Bolt / energy', value: bolt }
+                      - { label: 'Layers', value: layers }
+                  - { label: 'Title', name: title, widget: string }
+                  - { label: 'Text', name: text, widget: text }
+          - { <<: *section, label: 'Experience section', name: experience }
+          - { <<: *section, label: 'Projects section', name: projects }
+          - { <<: *section, label: 'Skills section', name: skills }
+          - label: 'Education section'
+            name: education
+            widget: object
+            collapsed: true
+            fields:
+              - { label: 'Small label', name: eyebrow, widget: string }
+              - { label: 'Heading', name: title, widget: string, hint: *heading_hint }
+          - label: Contact section
+            name: contact
+            widget: object
+            collapsed: true
+            fields:
+              - { label: 'Small label', name: eyebrow, widget: string }
+              - { label: 'Heading', name: title, widget: string, hint: *heading_hint }
+              - { label: 'Text', name: text, widget: text }
+              - { label: 'Reasons in the form', name: reasons, widget: list, required: false, hint: 'Choices for “What’s this about?”, separated by commas. Shown in Analytics, so you can see what messages are about.' }
+
+      - label: Résumé & CV
+        name: resume
+        file: content/pages/resume.json
+        description: 'Your résumé (short, one or two pages) and CV (everything) are made from the same content, as web pages (/resume/, /cv/) and PDFs (resume.pdf, cv.pdf).'
+        fields:
+          - { label: 'Professional summary', name: summary, widget: text, hint: 'The paragraph at the top of the résumé and CV.' }
+          - label: Résumé
+            name: resume
+            widget: object
+            fields:
+              - { label: 'Bullet points per job', name: max_highlights, widget: number, value_type: int, default: 3, hint: 'The first few highlights of each job.' }
+              - { label: 'Number of projects', name: max_projects, widget: number, value_type: int, default: 4, hint: 'Projects with “Include on résumé” on, in their order.' }
+              - { label: 'Show photo', name: show_photo, widget: boolean, default: false, hint: 'Many employers prefer résumés without a photo.' }
+          - label: CV
+            name: cv
+            widget: object
+            fields:
+              - { label: 'Show photo', name: show_photo, widget: boolean, default: true }
+          - { label: 'PDF file name', name: file_name, widget: string, hint: 'Downloads are saved as <name>-Resume.pdf and <name>-CV.pdf. Letters, numbers and dashes, e.g. Isaac-J-Newton.', pattern: ['^[A-Za-z0-9-]+$', 'Letters, numbers and dashes only.'] }
+
+      - label: Site settings
+        name: settings
+        file: content/settings.json
+        description: 'Technical settings for the website.'
+        fields:
+          - { label: 'Website address', name: site_url, widget: string, hint: 'Where the site lives, no trailing slash, e.g. https://fluxion9.github.io. Used for search engines and link previews.', pattern: ['^https?://[^/]+$', 'e.g. https://fluxion9.github.io (no trailing slash)'] }
+          - { label: 'Contact form endpoint', name: form_endpoint, widget: string, required: false, hint: 'Your Formspree (or similar) form URL. Empty = the form opens the visitor''s email app (needs an email in your profile).' }
+          - { label: 'Analytics address (advanced)', name: analytics_url, widget: string, required: false, hint: 'Where the website sends visit statistics: this admin''s address. Set automatically by Analytics → Connect the website. Empty = no analytics.' }
+
+  # ── Experience ──────────────────────────────────────────────────────────────────────────────
+  - name: experience
+    label: Experience
+    label_singular: Job
+    description: 'Jobs and roles, newest first, on the site, résumé and CV.'
+    folder: content/experience
+    create: true
+    slug: '{{company}}'
+    identifier_field: company
+    summary: '{{role}} — {{company}}'
+    sortable_fields: [start, company]
+    fields:
+      - { label: 'Company / organisation', name: company, widget: string }
+      - { label: 'Role / job title', name: role, widget: string }
+      - *published
+      - *on_resume
+      - { label: 'Type', name: employment_type, widget: string, required: false, hint: 'Optional, e.g. Remote, Contract, Part-time, Internship.' }
+      - { label: 'Location', name: location, widget: string, required: false }
+      - { label: 'Company website', name: url, widget: string, required: false }
+      - { label: 'Started', name: start, widget: string, pattern: *date_pattern, hint: 'YYYY-MM (e.g. 2021-07) or just the year.' }
+      - { label: 'I work here now', name: current, widget: boolean, default: false }
+      - { label: 'Ended', name: end, widget: string, required: false, pattern: *date_pattern, hint: 'Leave empty if you still work here.' }
+      - { label: 'Short description', name: summary, widget: text, required: false, hint: 'Optional sentence above the bullet points.' }
+      - { label: 'Highlights', name: highlights, widget: list, field: { label: Highlight, name: highlight, widget: text }, hint: 'What you did and achieved, one per item. Lead with results and numbers where you can. The résumé shows the first few.' }
+      - { label: 'Skills & tools used', name: skills, widget: list, required: false, hint: 'Separate with commas, e.g. Node.js, MongoDB, AWS.' }
+
+  # ── Projects ────────────────────────────────────────────────────────────────────────────────
+  - name: projects
+    label: Projects
+    label_singular: Project
+    description: 'Project cards on the site, and the projects on your résumé and CV.'
+    folder: content/projects
+    create: true
+    slug: '{{name}}'
+    identifier_field: name
+    summary: '{{name}}'
+    sortable_fields: [order, name]
+    fields:
+      - { label: 'Project name', name: name, widget: string }
+      - *published
+      - *on_resume
+      - { label: 'Featured', name: featured, widget: boolean, default: false, hint: 'Featured projects get a highlighted badge.' }
+      - { label: 'Position', name: order, widget: number, value_type: int, default: 10, hint: 'Lower numbers appear first.' }
+      - label: Categories
+        name: categories
+        widget: select
+        multiple: true
+        hint: 'Used for the filter buttons above the projects.'
+        options:
+          - { label: 'Hardware & PCB', value: hardware }
+          - { label: 'Embedded & IoT', value: embedded }
+          - { label: 'Web', value: web }
+          - { label: 'Backend & APIs', value: backend }
+          - { label: 'Mobile & PWA', value: mobile }
+          - { label: 'AI / ML', value: ml }
+      - { label: 'Year', name: year, widget: string, required: false, hint: 'e.g. 2024 or 2023–2024' }
+      - { label: 'Your role', name: role, widget: string, required: false, hint: 'e.g. Lead backend engineer' }
+      - { label: 'Card summary', name: summary, widget: text, hint: 'One or two sentences for the card and the résumé.' }
+      - { label: 'Full description', name: description, widget: text, required: false, hint: 'Shown on the CV (and in the card’s “More” panel). Empty = the summary.' }
+      - { label: 'Key points', name: highlights, widget: list, required: false, field: { label: Point, name: point, widget: text }, hint: 'Optional bullet points for the CV.' }
+      - { label: 'Image', name: image, widget: image, required: false }
+      - label: 'Image style'
+        name: image_style
+        widget: select
+        default: photo
+        options:
+          - { label: 'Photo or screenshot (fills the card)', value: photo }
+          - { label: 'Logo (shown whole on a white background)', value: logo }
+      - { label: 'Image description (for screen readers)', name: image_alt, widget: string, required: false }
+      - { label: 'Tags', name: tags, widget: list, required: false, hint: 'Technologies and keywords, separated by commas.' }
+      - label: 'Links'
+        name: links
+        widget: list
+        required: false
+        summary: '{{label}}'
+        hint: 'e.g. Visit site, Source code, Case study. The first one is the main button.'
+        fields:
+          - { label: 'Button text', name: label, widget: string }
+          - { label: 'Link', name: url, widget: string, pattern: ['^https?://', 'Start with https://'] }
+
+  # ── Education ───────────────────────────────────────────────────────────────────────────────
+  - name: education
+    label: Education
+    label_singular: School
+    description: 'Degrees, diplomas and courses, newest first.'
+    folder: content/education
+    create: true
+    slug: '{{school}}'
+    identifier_field: school
+    summary: '{{degree}} — {{school}}'
+    sortable_fields: [start, school]
+    fields:
+      - { label: 'School / institution', name: school, widget: string }
+      - { label: 'Degree / qualification', name: degree, widget: string, hint: 'e.g. Bachelor of Engineering (B.Eng.)' }
+      - { label: 'Field of study', name: field, widget: string, required: false }
+      - *published
+      - *on_resume
+      - { label: 'Location', name: location, widget: string, required: false }
+      - { label: 'Started', name: start, widget: string, required: false, pattern: *date_pattern }
+      - { label: 'Finished', name: end, widget: string, required: false, pattern: *date_pattern, hint: 'Or the expected year.' }
+      - { label: 'Grade / class', name: grade, widget: string, required: false, hint: 'e.g. Second Class Upper' }
+      - { label: 'Details', name: details, widget: text, required: false, hint: 'e.g. final-year project or thesis.' }
+      - { label: 'Highlights', name: highlights, widget: list, required: false, field: { label: Highlight, name: highlight, widget: text } }

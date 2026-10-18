@@ -19,10 +19,16 @@
     "Supports offline data logging for unstable internet",
     "Uses TOTP token generation for offline device activation"
   ],
-  "image": "",
+  "image": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792345803/portfolio/j0uenhsmvx1a7eqmyci5.jpg",
   "image_style": "photo",
   "image_alt": "",
-  "gallery": [],
+  "gallery": [
+    {
+      "media": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792345820/portfolio/wyr27xy2ipzi0kmgufvy.jpg",
+      "caption": "",
+      "alt": ""
+    }
+  ],
   "files": [],
   "tags": [],
   "links": []

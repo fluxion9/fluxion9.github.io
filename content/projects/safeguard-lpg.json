@@ -10,16 +10,40 @@
     "ml"
   ],
   "year": "2026",
-  "role": "",
+  "role": "Embedded System Engineer",
   "summary": "A gas monitoring and alarm system that detects LPG leaks, smoke and abnormal temperature, raises a distinct alarm for each  and learns its environment to reduce false alarms over time.",
-  "description": "A gas monitoring and alarm system that detects LPG leaks, smoke and abnormal temperature, raises a distinct alarm for each  and learns its environment to reduce false alarms over time.",
-  "highlights": [],
-  "image": "",
+  "description": "SafeGuard LPG continuously monitors gas level, smoke and temperature, and triggers an alarm that corresponds to the event it detects  so a gas leak, a fire risk and overheating are each clearly identified.\n\nAn alarm that sounds too often is easy to ignore. SafeGuard LPG uses an adaptive learning mechanism that learns the normal conditions of its environment, reducing false triggers over time while staying responsive to real hazards.",
+  "highlights": [
+    "Hardware",
+    " Embedded systems"
+  ],
+  "image": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792340941/portfolio/wp4gquuzypndie2ocrcr.webp",
   "image_style": "photo",
-  "image_alt": "",
-  "gallery": [],
+  "image_alt": "A gas monitoring and alarm system that detects LPG leaks, smoke and abnormal temperature, raises a distinct alarm for each  and learns its environment to reduce false alarms over time.",
+  "gallery": [
+    {
+      "media": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792341059/portfolio/rtmv1saljq6fotvurxca.webp",
+      "caption": "Casing",
+      "alt": ""
+    },
+    {
+      "media": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792341097/portfolio/ss2jd5v1e9y0b9vzjyhu.webp",
+      "caption": "Assembly",
+      "alt": ""
+    },
+    {
+      "media": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792341128/portfolio/uvkmjssne9zqx7glizlo.jpg",
+      "caption": "Eneon logo splash",
+      "alt": ""
+    }
+  ],
   "files": [],
-  "tags": [],
+  "tags": [
+    "Temperature",
+    "Hardware",
+    "Engineering",
+    "Software and Embedded System"
+  ],
   "links": [
     {
       "label": "SafeGuard LPG",

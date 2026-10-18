@@ -15,7 +15,9 @@
   "description": "",
   "highlights": [
     "Supports over-the-air updates",
-    "Uses a Touch screen"
+    "Uses a Touch-Screen Display ",
+    "Supports offline data logging for unstable internet",
+    "Uses TOTP token generation for offline device activation"
   ],
   "image": "",
   "image_style": "photo",

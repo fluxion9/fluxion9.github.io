@@ -24,17 +24,17 @@
   "gallery": [
     {
       "media": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792338782/portfolio/wrvzobntedplww40jf8c.webp",
-      "caption": "",
+      "caption": "Software development",
       "alt": ""
     },
     {
       "media": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792338977/portfolio/nx8lzhcprzkofmjsed1j.webp",
-      "caption": "",
+      "caption": "Testing",
       "alt": ""
     },
     {
       "media": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792338938/portfolio/tcmdkuwa8jeiplzcoweh.webp",
-      "caption": "",
+      "caption": "Assembly",
       "alt": ""
     }
   ],

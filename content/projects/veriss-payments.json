@@ -3,7 +3,7 @@
   "featured": false,
   "on_resume": true,
   "order": 4,
-  "year": "",
+  "year": "2026",
   "role": "",
   "image_style": "logo",
   "image_alt": "Veriss Payments logo",
@@ -22,10 +22,13 @@
   "description": "Fintech payment infrastructure for secure, seamless digital transactions. Focused on payment processing, transaction management, and scalable financial operations.",
   "image": "images/veriss-logo.png",
   "tags": [
-    "Backend Development",
+    "Fullstack Development",
     "Node.js",
     "Express.js",
+    "Vue.js",
     "MongoDB",
     "Paystack API"
-  ]
+  ],
+  "gallery": [],
+  "files": []
 }

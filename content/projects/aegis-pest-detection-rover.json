@@ -1,0 +1,31 @@
+{
+  "name": "Aegis pest Detection Rover",
+  "published": true,
+  "on_resume": true,
+  "featured": false,
+  "order": 6,
+  "categories": [
+    "hardware",
+    "embedded",
+    "ml"
+  ],
+  "year": "2026",
+  "role": "",
+  "summary": "An autonomous rover that patrols a farm plot and uses computer vision to detect soil and crop pests. Each time a pest is identified, it sends an instant alert to the owner's phone via Telegram, enabling timely, targeted intervention and reducing crop losses.",
+  "description": "An autonomous rover that patrols a farm plot and uses computer vision to detect soil and crop pests. Each time a pest is identified, it sends an instant alert to the owner's phone via Telegram, enabling timely, targeted intervention and reducing crop losses.",
+  "highlights": [
+    ""
+  ],
+  "image": "",
+  "image_style": "photo",
+  "image_alt": "",
+  "gallery": [],
+  "files": [],
+  "tags": [],
+  "links": [
+    {
+      "label": "Aegis pest Detection Rover",
+      "url": "https://eneontechnologies.com/projects/aegis-pest-detection-rover/"
+    }
+  ]
+}

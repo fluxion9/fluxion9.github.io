@@ -1,0 +1,27 @@
+{
+  "name": "Onegrid OneMeter",
+  "published": true,
+  "on_resume": true,
+  "featured": false,
+  "order": 8,
+  "categories": [
+    "embedded",
+    "web",
+    "backend"
+  ],
+  "year": "2025-2026",
+  "role": "Software and Hardware Engineer ",
+  "summary": "Smart Energy's metering for OneGrid charging stations: a prepaid meter that switches a load, logs device charging (oneplastic lanterns and other devices), and reports to an online dashboard.",
+  "description": "",
+  "highlights": [
+    "Supports over-the-air updates",
+    "Uses a Touch screen"
+  ],
+  "image": "",
+  "image_style": "photo",
+  "image_alt": "",
+  "gallery": [],
+  "files": [],
+  "tags": [],
+  "links": []
+}

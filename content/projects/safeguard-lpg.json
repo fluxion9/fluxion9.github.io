@@ -1,0 +1,29 @@
+{
+  "name": "SafeGuard LPG",
+  "published": true,
+  "on_resume": true,
+  "featured": false,
+  "order": 7,
+  "categories": [
+    "hardware",
+    "embedded",
+    "ml"
+  ],
+  "year": "2026",
+  "role": "",
+  "summary": "A gas monitoring and alarm system that detects LPG leaks, smoke and abnormal temperature, raises a distinct alarm for each  and learns its environment to reduce false alarms over time.",
+  "description": "A gas monitoring and alarm system that detects LPG leaks, smoke and abnormal temperature, raises a distinct alarm for each  and learns its environment to reduce false alarms over time.",
+  "highlights": [],
+  "image": "",
+  "image_style": "photo",
+  "image_alt": "",
+  "gallery": [],
+  "files": [],
+  "tags": [],
+  "links": [
+    {
+      "label": "SafeGuard LPG",
+      "url": "https://eneontechnologies.com/projects/safeguard-lpg/"
+    }
+  ]
+}

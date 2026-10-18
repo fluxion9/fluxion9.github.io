@@ -94,7 +94,8 @@
   // ---------------------------------------------------------------- navigation
   function renderNav() {
     const nav = $('[data-nav]');
-    nav.replaceChildren(
+    // Owner-only links are null for editors; leave them out (replaceChildren would print "null").
+    nav.replaceChildren(...[
       h('a', { class: 'nav-link', href: '#/', 'data-route': '' }, 'Dashboard'),
       state.me.role === 'owner' ? h('a', { class: 'nav-link', href: '#/analytics', 'data-route': 'analytics' }, 'Analytics') : null,
       h('div', { class: 'nav-label', text: 'Content' }),
@@ -104,7 +105,7 @@
       state.me.role === 'owner' ? h('a', { class: 'nav-link', href: '#/activity', 'data-route': 'activity' }, 'Activity') : null,
       h('a', { class: 'nav-link', href: '#/account', 'data-route': 'account' }, 'My account'),
       h('a', { class: 'nav-link', href: state.me.siteUrl, target: '_blank', rel: 'noopener' }, 'View website ↗')
-    );
+    ].filter(Boolean));
     $('[data-user-name]').textContent = state.me.name || state.me.email;
     $('[data-user-role]').textContent = state.me.role === 'owner' ? 'Owner' : 'Editor';
   }

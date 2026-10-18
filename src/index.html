@@ -77,7 +77,7 @@
   <header class="site-header" data-header>
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="{{ profile.name }} — back to top">
-        <span class="brand-mark" aria-hidden="true">{{ profile.initials }}</span>
+        <span class="brand-mark" aria-hidden="true">{{#if profile.photoSrc}}<img src="{{ profile.photoSrc }}" alt="" width="36" height="36">{{else}}{{ profile.initials }}{{/if}}</span>
         <span class="brand-name">{{ profile.name }}</span>
       </a>
       <nav class="site-nav" id="site-nav" data-menu aria-label="Main">
@@ -514,7 +514,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">{{ profile.initials }}</span><span class="brand-name">{{ profile.name }}</span></a>
+        <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">{{#if profile.photoSrc}}<img src="{{ profile.photoSrc }}" alt="" width="36" height="36">{{else}}{{ profile.initials }}{{/if}}</span><span class="brand-name">{{ profile.name }}</span></a>
         <p class="footer-note">© {{ currentYear }} {{ profile.name }} · {{ profile.headline }}</p>
       </div>
       <nav class="footer-links" aria-label="Footer">

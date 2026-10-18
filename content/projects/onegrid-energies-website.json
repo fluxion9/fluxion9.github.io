@@ -3,15 +3,15 @@
   "featured": false,
   "on_resume": true,
   "order": 3,
-  "year": "",
-  "role": "",
+  "year": "2026",
+  "role": "Developer",
   "image_style": "logo",
   "image_alt": "OneGrid Energies logo",
   "highlights": [],
   "links": [
     {
       "label": "Visit site",
-      "url": "https://onegridenergies.org"
+      "url": "https://onegridenergies.com"
     }
   ],
   "name": "OneGrid Energies",
@@ -26,5 +26,13 @@
     "Frontend Development",
     "Responsive Design",
     "Clean Energy"
-  ]
+  ],
+  "gallery": [
+    {
+      "media": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792344090/portfolio/sjptv1opmzhoavkd0b3v.jpg",
+      "caption": "",
+      "alt": ""
+    }
+  ],
+  "files": []
 }

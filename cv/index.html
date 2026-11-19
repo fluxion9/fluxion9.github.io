@@ -124,6 +124,64 @@
       <h2>Projects</h2>
       <article class="entry">
         <div class="entry-head">
+          <h3>M3tering Console <span class="entry-org">· Open-source contributor (M3tering Protocol): UI and architecture revamp</span></h3>
+          <span class="entry-date"><a href="https://github.com/M3tering/Console">github.com/M3tering/Console</a></span>
+        </div>
+        <p>M3tering Console runs on each LoRaWAN gateway. It reads meter reports from ChirpStack, decides whether each meter stays on based on on-chain revenue and price, replies to the meter, and publishes signed transactions to Arweave, Streamr and the prover. I redesigned its whole interface as a desktop-style workspace with windowed apps (Terminal over SSH, ChirpStack, Paint, Settings and UI extensions) in four themes, working on phones as well as desktops. I then added opt-in central and gateway roles: one central login reaches every site, while gateways only make outbound, authenticated connections and keep billing locally when central is away. Billing safety comes first: one durable owner per decision, uncertain outcomes held for reconciliation instead of retried, and no duplicate relay or billing effects. Delivered through upstream PRs #58–#63 (about 19,000 lines added).</p>
+        <ul>
+          <li>Redesigned the UI as a responsive desktop workspace: draggable, resizable windows, dock and launcher, four themes, touch gestures and keyboard control</li>
+          <li>Added central and managed-gateway roles: gateway enrollment, credential rotation and revocation, SSH and ChirpStack tunnels, and audit logs</li>
+          <li>Kept billing safe: atomic transactions and nonces, at-most-once publication, reconciliation of uncertain outcomes, and fail-closed relay decisions</li>
+          <li>Added signed, paired container updates with health checks and automatic rollback, plus a one-command auto-compose.sh deploy for every role</li>
+          <li>239 unit and integration tests and 28 Playwright browser tests</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> TypeScript, Node.js, Express, Handlebars, WebSockets, SQLite, MQTT, ChirpStack, Ethers.js, Docker, Playwright, Jest</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Switch M3TERS <span class="entry-org">· Full-stack engineer: built end to end (API, dashboard, gateway agent)</span></h3>
+          <span class="entry-date">2026</span>
+        </div>
+        <p>Switch M3TERS collects telemetry from Switch meters across LoRaWAN gateways. A Go agent on each gateway reads ChirpStack MQTT, keeps only registered meters on FPort 4, buffers to disk and forwards over HTTPS. The Node.js/Express API decodes the 97-byte Cumulus telemetry frame, stores raw events, measurements and hourly rollups in MongoDB, and streams updates to a React dashboard over Socket.IO. Ingestion is idempotent, and energy deltas survive meter restarts and late readings. End-to-end tests with the release binary covered two simulated meters, a 50-second API outage and an agent restart, with no lost or duplicated readings.</p>
+        <ul>
+          <li>Go gateway agent: MQTT filtering, disk-buffered delivery, systemd service, and Ed25519-signed self-updates for amd64, arm64 and armv7 with automatic rollback</li>
+          <li>Dashboard: live per-phase readings, history charts, analytics (consumption, demand, power quality, RSSI/SNR, reliability), CSV/PDF reports, light and dark themes</li>
+          <li>Firmware updates over the air: upload signed meter firmware and run ChirpStack FUOTA campaigns per gateway; meters confirm the new version in their telemetry</li>
+          <li>Security: separate admin and agent APIs, hashed gateway credentials, bcrypt, rate limits, Zod validation, roles and invitations, audit logs</li>
+          <li>No lost or duplicated readings through an API outage and an agent restart in end-to-end tests</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> React, Vite, Recharts, Node.js, Express, MongoDB, Socket.IO, Go, MQTT, ChirpStack, LoRaWAN FUOTA, Ed25519</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Switch Cumulus <span class="entry-org">· Firmware engineer: lead developer</span></h3>
+          <span class="entry-date">2026</span>
+        </div>
+        <p>Switch Cumulus measures energy with an ATM90E36A metering IC and reports Ed25519-signed, nonce-protected usage readings over LoRaWAN (OTAA, Class C). A backend can switch the customer's load through a relay with downlinks. A custom bootloader installs signed firmware updates sent over LoRaWAN FUOTA, survives power cuts mid-install and rolls back automatically if the new firmware cannot join the network. Optional FPort 4 telemetry carries every phase's voltage, current, active and reactive power, power factor, neutral current, frequency and temperature for the Switch M3TERS dashboard.</p>
+        <ul>
+          <li>Signed-image bootloader: backup, power-cut-safe install, automatic rollback, downgrades refused</li>
+          <li>Device-unique Ed25519 key generated from the hardware TRNG; signed reports with server-issued nonces for replay protection</li>
+          <li>Three-phase metering with selectable phase mode, run-time PGA settings and guided serial calibration</li>
+          <li>Reliability: no heap, bounds-safe printf, stack guard, crash reports, watchdog and automatic LoRaWAN re-join</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> C, STM32WL55, ATM90E36A, LoRaWAN, FUOTA, Ed25519, Bootloader, CMake, ChirpStack</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Switch Maxwell <span class="entry-org">· Firmware engineer: lead developer</span></h3>
+          <span class="entry-date">2024-2026</span>
+        </div>
+        <p>Switch Maxwell measures RMS voltage on the STM32WL55's ADC and current through a dedicated STM32G030 peak-detector co-processor over I2C, then computes power and energy (kWh). Each meter has its own Ed25519 identity, and every energy report is signed and bound to a server-issued nonce so the backend can verify where a reading came from and reject replays. Energy the server has not acknowledged carries over to the next report. Downlinks switch the isolator, change the reporting interval, set the nonce and location, or reboot the meter. Firmware updates arrive over LoRaWAN FUOTA and are installed by a signed-image bootloader with rollback.</p>
+        <ul>
+          <li>Two-MCU design: STM32WL55 meter firmware plus an STM32G030 current peak detector over I2C</li>
+          <li>Ed25519-signed, nonce-bound energy reports with carry-over of unacknowledged energy</li>
+          <li>Firmware updates over the air (ChirpStack FUOTA) with a signed-image bootloader, rollback and product checks</li>
+          <li>Self-healing link: automatic re-registration and re-join, crash protection, bench self-test</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> C, STM32WL55, STM32G030, Generic Node SE, LoRaWAN, FUOTA, Ed25519, I2C</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
           <h3>Foot Pressure Measurement Device</h3>
           <span class="entry-date"></span>
         </div>

@@ -137,7 +137,7 @@
       <div class="container">
         <dl class="stats">
           <div class="stat"><dt>years of experience</dt><dd>5+</dd></div>
-          <div class="stat"><dt>projects shipped</dt><dd>8</dd></div>
+          <div class="stat"><dt>projects shipped</dt><dd>12</dd></div>
           <div class="stat"><dt>companies</dt><dd>4</dd></div>
         </dl>
       </div>
@@ -265,6 +265,110 @@
           </div>
         </header>
         <div class="projects" data-projects>
+          <article class="project reveal" data-project="M3tering Console" data-categories="web backend embedded">
+            <div class="project-media">
+              <img src="./images/m3tering-console-retro-desktop.jpg" alt="M3tering Console desktop in the Retro 8-Bit theme" loading="lazy" decoding="async">
+              <button class="media-open" type="button" data-gallery-open aria-label="Open the M3tering Console gallery (6 photos)"><span><svg class="i" aria-hidden="true"><use href="#i-image"/></svg> 6 photos</span></button>
+            </div>
+            <script type="application/json" data-gallery>[{"type":"image","src":"images/m3tering-console-retro-desktop.jpg","poster":"","caption":"Desktop workspace, Retro 8-Bit theme","alt":"Desktop workspace, Retro 8-Bit theme"},{"type":"image","src":"images/m3tering-console-settings.jpg","poster":"","caption":"Settings: four desktop themes with live previews","alt":"Settings: four desktop themes with live previews"},{"type":"image","src":"images/m3tering-console-gateway-menu.jpg","poster":"","caption":"Central server: switch between gateways and see each one's billing health","alt":"Central server: switch between gateways and see each one's billing health"},{"type":"image","src":"images/m3tering-console-manage-gateways.jpg","poster":"","caption":"Central server: add, rename, rotate credentials for and revoke gateways","alt":"Central server: add, rename, rotate credentials for and revoke gateways"},{"type":"image","src":"images/m3tering-console-terminal.jpg","poster":"","caption":"Terminal app over SSH, Windows-inspired theme","alt":"Terminal app over SSH, Windows-inspired theme"},{"type":"image","src":"images/m3tering-console-mobile.jpg","poster":"","caption":"Phone layout","alt":"Phone layout"}]</script>
+            <div class="project-body">
+              <p class="project-meta mono">Web · Backend &amp; APIs · Embedded &amp; IoT · 2026</p>
+              <h3 class="project-title">M3tering Console</h3>
+              <p class="project-role">Open-source contributor (M3tering Protocol): UI and architecture revamp</p>
+              <p class="project-summary">Rebuilt the interface and core logic of the M3tering Protocol's service console, the gateway app that bills LoRaWAN smart meters on-chain: a themeable desktop-style UI, a central server that manages many gateways, and one-command deployment.</p>
+              <ul class="tags">
+                <li>TypeScript</li>
+                <li>Node.js</li>
+                <li>Express</li>
+                <li>Handlebars</li>
+                <li>WebSockets</li>
+                <li>SQLite</li>
+                <li>MQTT</li>
+                <li>ChirpStack</li>
+                <li>Ethers.js</li>
+                <li>Docker</li>
+                <li>Playwright</li>
+                <li>Jest</li>
+              </ul>
+              <div class="project-links">
+                <a class="link-arrow" href="https://github.com/M3tering/Console" target="_blank" rel="noopener">M3tering/Console on GitHub <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </article>
+          <article class="project reveal" data-project="Switch M3TERS" data-categories="web backend embedded">
+            <div class="project-media">
+              <img src="./images/switch-m3ters-overview.jpg" alt="Switch M3TERS dashboard overview" loading="lazy" decoding="async">
+              <button class="media-open" type="button" data-gallery-open aria-label="Open the Switch M3TERS gallery (7 photos)"><span><svg class="i" aria-hidden="true"><use href="#i-image"/></svg> 7 photos</span></button>
+            </div>
+            <script type="application/json" data-gallery>[{"type":"image","src":"images/switch-m3ters-overview.jpg","poster":"","caption":"Network overview: gateways, meters, energy and telemetry at a glance","alt":"Network overview: gateways, meters, energy and telemetry at a glance"},{"type":"image","src":"images/switch-m3ters-meter.jpg","poster":"","caption":"Meter detail: live per-phase readings from a Switch Cumulus meter","alt":"Meter detail: live per-phase readings from a Switch Cumulus meter"},{"type":"image","src":"images/switch-m3ters-analytics.jpg","poster":"","caption":"Analytics: energy consumption, demand and breakdown by meter","alt":"Analytics: energy consumption, demand and breakdown by meter"},{"type":"image","src":"images/switch-m3ters-fuota.jpg","poster":"","caption":"Firmware update campaign over LoRaWAN (FUOTA) to switch-cumulus 1.0.5","alt":"Firmware update campaign over LoRaWAN (FUOTA) to switch-cumulus 1.0.5"},{"type":"image","src":"images/switch-m3ters-agents.jpg","poster":"","caption":"Agent management: gateway fleet, versions and signed remote updates","alt":"Agent management: gateway fleet, versions and signed remote updates"},{"type":"image","src":"images/switch-m3ters-dark.jpg","poster":"","caption":"Dark theme","alt":"Dark theme"},{"type":"image","src":"images/switch-m3ters-mobile.jpg","poster":"","caption":"Phone layout","alt":"Phone layout"}]</script>
+            <div class="project-body">
+              <p class="project-meta mono">Web · Backend &amp; APIs · Embedded &amp; IoT · 2026</p>
+              <h3 class="project-title">Switch M3TERS</h3>
+              <p class="project-role">Full-stack engineer: built end to end (API, dashboard, gateway agent)</p>
+              <p class="project-summary">Switch Electric's platform for managing meters, gateways and telemetry: a Go agent on each LoRaWAN gateway, a Node.js API and a React dashboard with live readings, analytics, reports, signed agent updates and firmware updates over the air.</p>
+              <ul class="tags">
+                <li>React</li>
+                <li>Vite</li>
+                <li>Recharts</li>
+                <li>Node.js</li>
+                <li>Express</li>
+                <li>MongoDB</li>
+                <li>Socket.IO</li>
+                <li>Go</li>
+                <li>MQTT</li>
+                <li>ChirpStack</li>
+                <li>LoRaWAN FUOTA</li>
+                <li>Ed25519</li>
+              </ul>
+            </div>
+          </article>
+          <article class="project reveal" data-project="Switch Cumulus" data-categories="embedded hardware">
+            <div class="project-media">
+              <img src="./images/switch-cumulus-diagram.jpg" alt="Switch Cumulus system diagram" loading="lazy" decoding="async">
+              <button class="media-open" type="button" data-gallery-open aria-label="Open the Switch Cumulus gallery (3 photos)"><span><svg class="i" aria-hidden="true"><use href="#i-image"/></svg> 3 photos</span></button>
+            </div>
+            <script type="application/json" data-gallery>[{"type":"image","src":"images/switch-cumulus-diagram.jpg","poster":"","caption":"System overview: ATM90E36A, external flash, relay, STM32WL55 and ChirpStack","alt":"System overview: ATM90E36A, external flash, relay, STM32WL55 and ChirpStack"},{"type":"image","src":"images/switch-m3ters-meter.jpg","poster":"","caption":"Live three-phase telemetry from a Cumulus meter in the Switch M3TERS dashboard","alt":"Live three-phase telemetry from a Cumulus meter in the Switch M3TERS dashboard"},{"type":"image","src":"images/switch-m3ters-fuota.jpg","poster":"","caption":"Over-the-air update of two Cumulus meters to firmware 1.0.5","alt":"Over-the-air update of two Cumulus meters to firmware 1.0.5"}]</script>
+            <div class="project-body">
+              <p class="project-meta mono">Embedded &amp; IoT · Hardware &amp; PCB · 2026</p>
+              <h3 class="project-title">Switch Cumulus</h3>
+              <p class="project-role">Firmware engineer: lead developer</p>
+              <p class="project-summary">Firmware for Switch Electric's three-phase LoRaWAN prepaid energy meter on the STM32WL55: Ed25519-signed usage reports, remote load control, rich telemetry and fail-safe firmware updates over the air.</p>
+              <ul class="tags">
+                <li>C</li>
+                <li>STM32WL55</li>
+                <li>ATM90E36A</li>
+                <li>LoRaWAN</li>
+                <li>FUOTA</li>
+                <li>Ed25519</li>
+                <li>Bootloader</li>
+                <li>CMake</li>
+                <li>ChirpStack</li>
+              </ul>
+            </div>
+          </article>
+          <article class="project reveal" data-project="Switch Maxwell" data-categories="embedded hardware">
+            <div class="project-media">
+              <img src="./images/switch-maxwell-diagram.jpg" alt="Switch Maxwell system diagram" loading="lazy" decoding="async">
+              <button class="media-open" type="button" data-gallery-open aria-label="Open the Switch Maxwell gallery (1 photo)"><span><svg class="i" aria-hidden="true"><use href="#i-image"/></svg> 1 photo</span></button>
+            </div>
+            <script type="application/json" data-gallery>[{"type":"image","src":"images/switch-maxwell-diagram.jpg","poster":"","caption":"System overview: voltage sense, STM32G030 current co-processor, relay, Generic Node SE and ChirpStack","alt":"System overview: voltage sense, STM32G030 current co-processor, relay, Generic Node SE and ChirpStack"}]</script>
+            <div class="project-body">
+              <p class="project-meta mono">Embedded &amp; IoT · Hardware &amp; PCB · 2024-2026</p>
+              <h3 class="project-title">Switch Maxwell</h3>
+              <p class="project-role">Firmware engineer: lead developer</p>
+              <p class="project-summary">Firmware for a single-phase LoRaWAN smart energy meter on The Things Industries' Generic Node SE (STM32WL55), with an STM32G030 current co-processor, signed energy reports and remote load control.</p>
+              <ul class="tags">
+                <li>C</li>
+                <li>STM32WL55</li>
+                <li>STM32G030</li>
+                <li>Generic Node SE</li>
+                <li>LoRaWAN</li>
+                <li>FUOTA</li>
+                <li>Ed25519</li>
+                <li>I2C</li>
+              </ul>
+            </div>
+          </article>
           <article class="project reveal" data-project="Foot Pressure Measurement Device" data-categories="hardware embedded">
             <div class="project-media">
               <img src="./images/foot-sense-pcb.png" alt="PCB layout of the foot pressure measurement device" loading="lazy" decoding="async">

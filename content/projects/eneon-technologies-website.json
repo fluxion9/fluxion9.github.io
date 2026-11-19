@@ -1,0 +1,91 @@
+{
+  "name": "Eneon Technologies Website & CMS",
+  "published": true,
+  "on_resume": false,
+  "featured": false,
+  "order": 15,
+  "categories": [
+    "web"
+  ],
+  "year": "2026",
+  "role": "Founder and developer",
+  "summary": "The website of Eneon Technologies, my hardware and software engineering company: services, case studies and products, edited in a custom content admin that rebuilds the static site on every save.",
+  "description": "eneontechnologies.com is a framework-free static site. Its case studies cover projects such as the OneGrid meter, SafeGuard LPG and the Aegis pest-detection rover, alongside eight service areas from PCB design to AI and products such as Eneon Tunnels. Staff edit projects, products, services, page text and contact details in an admin app on Render. Saves commit JSON to GitHub, a GitHub Action rebuilds the pages, and the host deploys them. Photos and videos upload to Cloudinary, and the site crops and resizes them for each place they appear.",
+  "highlights": [
+    "Case-study page generated for every project, with galleries and filters by discipline",
+    "Content admin with Google, emailed-link or password sign-in, team roles and an activity log",
+    "Static output that can be hosted anywhere, rebuilt by GitHub Actions on each save",
+    "Light and dark themes, phone layout, WhatsApp contact and an enquiry form"
+  ],
+  "image": "images/eneon-web-home.jpg",
+  "image_style": "photo",
+  "image_alt": "Eneon Technologies home page",
+  "gallery": [
+    {
+      "media": "images/eneon-web-home.jpg",
+      "caption": "Home page",
+      "alt": "Home page"
+    },
+    {
+      "media": "images/eneon-web-services-grid.jpg",
+      "caption": "Eight engineering disciplines",
+      "alt": "Eight engineering disciplines"
+    },
+    {
+      "media": "images/eneon-web-process.jpg",
+      "caption": "From concept to deployment",
+      "alt": "From concept to deployment"
+    },
+    {
+      "media": "images/eneon-web-service.jpg",
+      "caption": "A service section",
+      "alt": "A service section"
+    },
+    {
+      "media": "images/eneon-web-projects.jpg",
+      "caption": "Projects, filterable by discipline",
+      "alt": "Projects, filterable by discipline"
+    },
+    {
+      "media": "images/eneon-web-case-study.jpg",
+      "caption": "Case study: OneGrid meter",
+      "alt": "Case study: OneGrid meter"
+    },
+    {
+      "media": "images/eneon-web-products.jpg",
+      "caption": "Products: Eneon Tunnels",
+      "alt": "Products: Eneon Tunnels"
+    },
+    {
+      "media": "images/eneon-web-contact.jpg",
+      "caption": "Contact and project enquiry",
+      "alt": "Contact and project enquiry"
+    },
+    {
+      "media": "images/eneon-web-mobile.jpg",
+      "caption": "Phone layout",
+      "alt": "Phone layout"
+    },
+    {
+      "media": "images/eneon-web-admin.jpg",
+      "caption": "Content admin: editing a project",
+      "alt": "Content admin: editing a project"
+    }
+  ],
+  "files": [],
+  "tags": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Node.js",
+    "MongoDB",
+    "GitHub Actions",
+    "Cloudinary"
+  ],
+  "links": [
+    {
+      "label": "Visit site",
+      "url": "https://eneontechnologies.com"
+    }
+  ]
+}

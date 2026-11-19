@@ -1,0 +1,77 @@
+{
+  "name": "Veriss Accounts & Admin",
+  "published": true,
+  "on_resume": false,
+  "featured": false,
+  "order": 14,
+  "categories": [
+    "backend",
+    "web"
+  ],
+  "year": "2026",
+  "role": "Backend engineer (IEU Africa): platform identity and operations",
+  "summary": "One Veriss account for every Veriss app, the way a Google account works across Google's apps, plus a single admin console for Payments, Forms and Certificates and the veriss.co homepage.",
+  "description": "Veriss Accounts (accounts.veriss.co) handles sign-up, sign-in, email verification and password resets for the whole platform. It uses the OAuth 2.0 authorization-code flow, with single-use codes that are bound to the app and its state, valid for 60 seconds and stored only as SHA-256 hashes. Like Google, one browser can hold up to five accounts with an account chooser, and users can sign out of one account, the device or everywhere. Veriss Admin (admin.veriss.co) replaced the separate admin pages each app used to have: one console with its own admin logic for payments (organizations, members, services, fees), forms (pause, close or restore with logged reasons) and certificates (batches, revocations, fees, free credits), plus team management. Each app has its own JWT secret and a shared token-revocation list.",
+  "highlights": [
+    "Single sign-on across Payments, Forms, Certificates and Members with an OAuth-style code flow",
+    "Account chooser for up to 5 accounts per browser, and sign out per account, per device or everywhere",
+    "One admin console with role-based actions (admin / super-admin), required reasons and activity logs",
+    "Platform overview: collections, platform revenue, organizations, members, forms and certificates in one place"
+  ],
+  "image": "images/veriss-admin-overview.jpg",
+  "image_style": "photo",
+  "image_alt": "Veriss Admin overview",
+  "gallery": [
+    {
+      "media": "images/veriss-landing.jpg",
+      "caption": "veriss.co homepage",
+      "alt": "veriss.co homepage"
+    },
+    {
+      "media": "images/veriss-accounts-signin.jpg",
+      "caption": "Veriss Accounts sign-in",
+      "alt": "Veriss Accounts sign-in"
+    },
+    {
+      "media": "images/veriss-accounts-home.jpg",
+      "caption": "Account page: every Veriss app and the accounts on this device",
+      "alt": "Account page: every Veriss app and the accounts on this device"
+    },
+    {
+      "media": "images/veriss-admin-overview.jpg",
+      "caption": "Veriss Admin: the whole platform at a glance",
+      "alt": "Veriss Admin: the whole platform at a glance"
+    },
+    {
+      "media": "images/veriss-admin-payments.jpg",
+      "caption": "Admin: payments overview and monthly collections",
+      "alt": "Admin: payments overview and monthly collections"
+    },
+    {
+      "media": "images/veriss-admin-transactions.jpg",
+      "caption": "Admin: transactions across every organization",
+      "alt": "Admin: transactions across every organization"
+    },
+    {
+      "media": "images/veriss-admin-certificates.jpg",
+      "caption": "Admin: certificates overview",
+      "alt": "Admin: certificates overview"
+    }
+  ],
+  "files": [],
+  "tags": [
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "OAuth 2.0",
+    "JWT",
+    "Vue 3",
+    "Security"
+  ],
+  "links": [
+    {
+      "label": "veriss.co",
+      "url": "https://veriss.co"
+    }
+  ]
+}

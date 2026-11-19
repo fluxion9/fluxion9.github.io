@@ -2,12 +2,19 @@
   "published": true,
   "featured": false,
   "on_resume": true,
-  "order": 8,
-  "year": "2026",
-  "role": "",
-  "image_style": "logo",
-  "image_alt": "Veriss Payments logo",
-  "highlights": [],
+  "order": 11,
+  "year": "2025-2026",
+  "role": "Lead backend and full-stack engineer (IEU Africa)",
+  "image_style": "photo",
+  "image_alt": "Veriss Payments organization dashboard",
+  "highlights": [
+    "Paystack subaccounts so money settles directly into each organization's bank account, with webhook and redirect confirmation plus scheduled reconciliation",
+    "Payment services for dues, events, levies, donations (fixed or flexible) and fundraisers that close automatically when the target is reached",
+    "API checkout for other websites: signed requests, hosted checkout, verify API, per-service signed webhooks and public developer docs",
+    "QR-verifiable receipts as one-page PDFs, Excel exports, yearly overviews and an activity feed",
+    "Rich link previews for shared service links, with Cloudinary banners and server-rendered meta tags",
+    "Single sign-on with Veriss Accounts, and member journeys handed over to Veriss Members"
+  ],
   "links": [
     {
       "label": "Visit site",
@@ -16,19 +23,65 @@
   ],
   "name": "Veriss Payments",
   "categories": [
-    "backend"
+    "backend",
+    "web"
   ],
-  "summary": "Fintech payment infrastructure for secure, seamless digital transactions, payment processing and transaction management.",
-  "description": "Fintech payment infrastructure for secure, seamless digital transactions. Focused on payment processing, transaction management, and scalable financial operations.",
-  "image": "images/veriss-logo.png",
+  "summary": "Payment platform for organizations such as professional bodies, schools and unions: they create dues, event, donation and fundraising services, collect money through Paystack straight into their own bank accounts, and give payers receipts anyone can verify.",
+  "description": "Veriss Payments is the core of the Veriss platform at payment.veriss.co. Organizations add settlement bank accounts, which are verified with Paystack and become Paystack subaccounts. They then create payment services with an amount, a payment window, custom questions for payers and rules for who may pay: subscribers, the public, specific users or specific emails. Members and guests pay online and get receipts with a QR code that links to a public verification page. Organizations can also take payments from their own websites through an API checkout with signed requests, a verify API and signed webhooks, documented at /developers. One Express 5 app serves the JSON API and a Vue 3 + Tailwind frontend backed by MongoDB, and every amount is stored in kobo.",
+  "image": "images/veriss-payments-dashboard.jpg",
   "tags": [
-    "Fullstack Development",
     "Node.js",
-    "Express.js",
-    "Vue.js",
+    "Express 5",
     "MongoDB",
-    "Paystack API"
+    "Mongoose",
+    "Paystack API",
+    "Vue 3",
+    "Tailwind CSS",
+    "JWT",
+    "Brevo",
+    "Cloudinary"
   ],
-  "gallery": [],
+  "gallery": [
+    {
+      "media": "images/veriss-payments-dashboard.jpg",
+      "caption": "Organization dashboard: revenue, payments, subscribers and top services",
+      "alt": "Organization dashboard: revenue, payments, subscribers and top services"
+    },
+    {
+      "media": "images/veriss-payments-services.jpg",
+      "caption": "Payment services: dues, events, a fundraiser and a levy",
+      "alt": "Payment services: dues, events, a fundraiser and a levy"
+    },
+    {
+      "media": "images/veriss-payments-payments.jpg",
+      "caption": "Every payment across the organization's services, with filters and export",
+      "alt": "Every payment across the organization's services, with filters and export"
+    },
+    {
+      "media": "images/veriss-payments-service-payments.jpg",
+      "caption": "Payments for one service, including the custom field each payer filled in",
+      "alt": "Payments for one service, including the custom field each payer filled in"
+    },
+    {
+      "media": "images/veriss-payments-fundraiser.jpg",
+      "caption": "Public fundraiser page with progress toward its target",
+      "alt": "Public fundraiser page with progress toward its target"
+    },
+    {
+      "media": "images/veriss-payments-checkout.jpg",
+      "caption": "Public payment page for an event",
+      "alt": "Public payment page for an event"
+    },
+    {
+      "media": "images/veriss-payments-developers.jpg",
+      "caption": "Developer documentation for the API checkout",
+      "alt": "Developer documentation for the API checkout"
+    },
+    {
+      "media": "images/veriss-payments-home.jpg",
+      "caption": "Veriss Payments home page",
+      "alt": "Veriss Payments home page"
+    }
+  ],
   "files": []
 }

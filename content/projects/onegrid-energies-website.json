@@ -2,32 +2,92 @@
   "published": true,
   "featured": false,
   "on_resume": true,
-  "order": 7,
+  "order": 10,
   "year": "2026",
   "role": "Developer",
-  "image_style": "logo",
-  "image_alt": "OneGrid Energies logo",
-  "highlights": [],
+  "image_style": "photo",
+  "image_alt": "OneGrid Energies home page",
+  "highlights": [
+    "Custom CMS: edits commit JSON to GitHub, and a GitHub Action rebuilds and publishes the static pages",
+    "Editable fields are defined by data-cms annotations in one HTML template, with the admin schema generated from it",
+    "Sign-in with Google, emailed links or password; team roles and an activity log",
+    "Anonymous analytics: pages, sources, countries, devices, WhatsApp taps, plans chosen and forms sent",
+    "Light and dark themes, responsive layout and rich link previews"
+  ],
   "links": [
     {
       "label": "Visit site",
       "url": "https://onegridenergies.com"
     }
   ],
-  "name": "OneGrid Energies",
+  "name": "OneGrid Energies Website & CMS",
   "categories": [
     "web"
   ],
-  "summary": "Website for a Nigerian clean-energy company focused on renewable energy access, solar installations, recycling innovation and community empowerment.",
-  "description": "Built the OneGrid Energies website for a Nigerian clean energy company focused on renewable energy access, solar installations, recycling innovation, and community empowerment across underserved communities.",
-  "image": "https://res.cloudinary.com/dj2ciluyx/image/upload/v1781616568/ONEGRID_BLACK_PNG_lavn7x.png",
+  "summary": "Website for a Nigerian clean-energy company, edited by staff in a custom CMS that republishes it on every save.",
+  "description": "The public site at onegridenergies.com is plain static HTML, one folder per page, so it can be hosted anywhere with no server. Staff edit it in a separate admin app on Render: page text, photos, videos, lists (gallery, partners, impact figures, solar plans, FAQ, reviews), contact details and SEO, with uploads going straight to Cloudinary. Each save commits the content as JSON to GitHub, and a GitHub Action rebuilds the pages from a single annotated template. The admin also has team accounts (Google, emailed link or password sign-in), an activity log and privacy-friendly visitor analytics.",
+  "image": "images/onegrid-web-home.jpg",
   "tags": [
-    "Website Development",
-    "Frontend Development",
-    "Responsive Design",
-    "Clean Energy"
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Node.js",
+    "MongoDB",
+    "GitHub Actions",
+    "Cloudinary",
+    "SEO"
   ],
   "gallery": [
+    {
+      "media": "images/onegrid-web-home.jpg",
+      "caption": "Home page",
+      "alt": "Home page"
+    },
+    {
+      "media": "images/onegrid-web-oneplastic.jpg",
+      "caption": "OnePlastic: turning plastic waste and old laptop batteries into solar lanterns",
+      "alt": "OnePlastic: turning plastic waste and old laptop batteries into solar lanterns"
+    },
+    {
+      "media": "images/onegrid-web-oneplastic-2.jpg",
+      "caption": "OnePlastic flagship initiative",
+      "alt": "OnePlastic flagship initiative"
+    },
+    {
+      "media": "images/onegrid-web-quote.jpg",
+      "caption": "Solar quote page",
+      "alt": "Solar quote page"
+    },
+    {
+      "media": "images/onegrid-web-recognition.jpg",
+      "caption": "Recognitions: awards with a photo carousel",
+      "alt": "Recognitions: awards with a photo carousel"
+    },
+    {
+      "media": "images/onegrid-web-stories.jpg",
+      "caption": "Stories of Hope",
+      "alt": "Stories of Hope"
+    },
+    {
+      "media": "images/onegrid-web-about.jpg",
+      "caption": "About",
+      "alt": "About"
+    },
+    {
+      "media": "images/onegrid-web-mobile.jpg",
+      "caption": "Phone layout",
+      "alt": "Phone layout"
+    },
+    {
+      "media": "images/onegrid-web-admin-pages.jpg",
+      "caption": "Content admin: every page is editable",
+      "alt": "Content admin: every page is editable"
+    },
+    {
+      "media": "images/onegrid-web-admin-editor.jpg",
+      "caption": "Content admin: editing the home page hero",
+      "alt": "Content admin: editing the home page hero"
+    },
     {
       "media": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792344090/portfolio/sjptv1opmzhoavkd0b3v.jpg",
       "caption": "",

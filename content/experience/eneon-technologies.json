@@ -1,0 +1,18 @@
+{
+  "company": "Eneon Technologies",
+  "role": "Founder",
+  "published": true,
+  "on_resume": true,
+  "employment_type": "",
+  "location": "Enugu, Nigeria",
+  "url": "https://eneontechnologies.com",
+  "start": "2026-07",
+  "end": "",
+  "current": true,
+  "summary": "",
+  "highlights": [
+    "Lead hardware, firmware and software engineering for client projects.",
+    "Built Eneon Tunnels, a remote-access platform for IoT and edge devices."
+  ],
+  "skills": []
+}

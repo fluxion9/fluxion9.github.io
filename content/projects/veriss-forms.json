@@ -1,0 +1,74 @@
+{
+  "name": "Veriss Forms",
+  "published": true,
+  "on_resume": false,
+  "featured": false,
+  "order": 5,
+  "categories": [
+    "backend",
+    "web"
+  ],
+  "year": "2026",
+  "role": "Backend and full-stack engineer (IEU Africa): built end to end",
+  "summary": "Form builder for organizations on Veriss: registrations, applications and surveys with 18 question types, shared by link, answered without an account, and managed or exported as Excel/CSV.",
+  "description": "Veriss Forms (forms.veriss.co) runs next to Veriss Payments and shares its database and organization accounts. The builder has 18 question types, per-type validation, drag-and-drop ordering, a live preview and a guard against losing unsaved changes. Forms can carry a Cloudinary banner, close themselves when a response target is reached, and show how many places are left. Changing questions after responses arrive starts a new form version, so earlier answers always display against the questions they answered. Respondents need no account and get a mobile-first form with client and server validation, upload progress and duplicate-safe submission backed by anti-spam checks. Organizations search, filter and page through responses, open them in a detail drawer and export genuine .xlsx or CSV files.",
+  "highlights": [
+    "18 question types, including file and image uploads, ratings, consent and date/time, each with its own validation settings",
+    "Form versions: editing a live form never corrupts earlier responses",
+    "Response targets that close the form automatically, with optional places-left display and email notifications",
+    "Duplicate-safe, rate-limited public submissions with honeypot and minimum-fill-time checks",
+    "Responses with dynamic columns, search, date filters, a detail drawer and .xlsx/CSV export"
+  ],
+  "image": "images/veriss-forms-dashboard.jpg",
+  "image_style": "photo",
+  "image_alt": "Veriss Forms dashboard",
+  "gallery": [
+    {
+      "media": "images/veriss-forms-dashboard.jpg",
+      "caption": "Overview: responses, forms and top forms",
+      "alt": "Overview: responses, forms and top forms"
+    },
+    {
+      "media": "images/veriss-forms-list.jpg",
+      "caption": "Forms with status, response targets and share links",
+      "alt": "Forms with status, response targets and share links"
+    },
+    {
+      "media": "images/veriss-forms-builder.jpg",
+      "caption": "Form builder with live preview",
+      "alt": "Form builder with live preview"
+    },
+    {
+      "media": "images/veriss-forms-responses.jpg",
+      "caption": "Responses table with search, filters and export",
+      "alt": "Responses table with search, filters and export"
+    },
+    {
+      "media": "images/veriss-forms-public.jpg",
+      "caption": "Public form, with places left",
+      "alt": "Public form, with places left"
+    },
+    {
+      "media": "images/veriss-forms-public-mobile.jpg",
+      "caption": "Public form on a phone",
+      "alt": "Public form on a phone"
+    }
+  ],
+  "files": [],
+  "tags": [
+    "Node.js",
+    "Express 5",
+    "MongoDB",
+    "Vue 3",
+    "Tailwind CSS",
+    "Cloudinary",
+    "ExcelJS",
+    "Brevo"
+  ],
+  "links": [
+    {
+      "label": "Visit site",
+      "url": "https://forms.veriss.co"
+    }
+  ]
+}

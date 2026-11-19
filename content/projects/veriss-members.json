@@ -1,0 +1,60 @@
+{
+  "name": "Veriss Members",
+  "published": true,
+  "on_resume": false,
+  "featured": false,
+  "order": 13,
+  "categories": [
+    "web",
+    "backend"
+  ],
+  "year": "2026",
+  "role": "Full-stack engineer (IEU Africa): built end to end",
+  "summary": "The app for people who pay their organizations on Veriss: what they've paid, receipts with QR codes, the organizations they belong to and the payments open to them, all behind Veriss single sign-on.",
+  "description": "Veriss Members (members.veriss.co) gives members an overview of what they paid this year and in total, payments that are ready to pay, their payment history and receipts with a QR code anyone can scan to verify. They can also find organizations by name, email or location and join or leave them. It has its own API over the shared Veriss database and applies the same rules Veriss Payments uses for members. Taking money stays in Veriss Payments: the Pay button opens the service there in member mode, single sign-on signs the member in, and the receipt opens back in Members.",
+  "highlights": [
+    "Overview of yearly and all-time payments, payments ready to pay, and organizations",
+    "Receipts with QR verification; payment history filtered by status",
+    "Find, join and leave organizations, with Veriss Payments' counters and activity feed kept consistent",
+    "Sign-in only through Veriss Accounts (OAuth-style code flow); Vue 3 single-page app with light and dark themes"
+  ],
+  "image": "images/veriss-members-overview.jpg",
+  "image_style": "photo",
+  "image_alt": "Veriss Members overview",
+  "gallery": [
+    {
+      "media": "images/veriss-members-overview.jpg",
+      "caption": "Overview: paid this year and payments ready to pay",
+      "alt": "Overview: paid this year and payments ready to pay"
+    },
+    {
+      "media": "images/veriss-members-payments.jpg",
+      "caption": "Payment history",
+      "alt": "Payment history"
+    },
+    {
+      "media": "images/veriss-members-receipt.jpg",
+      "caption": "Receipt with a QR code anyone can scan to verify",
+      "alt": "Receipt with a QR code anyone can scan to verify"
+    },
+    {
+      "media": "images/veriss-members-orgs.jpg",
+      "caption": "The member's organizations",
+      "alt": "The member's organizations"
+    }
+  ],
+  "files": [],
+  "tags": [
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Vue 3",
+    "SSO"
+  ],
+  "links": [
+    {
+      "label": "Visit site",
+      "url": "https://members.veriss.co"
+    }
+  ]
+}

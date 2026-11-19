@@ -10,14 +10,16 @@
     "backend"
   ],
   "year": "2025-2026",
-  "role": "Software and Hardware Engineer ",
-  "summary": "Smart Energy's metering for OneGrid charging stations: a prepaid meter that switches a load, logs device charging (oneplastic lanterns and other devices), and reports to an online dashboard.",
-  "description": "",
+  "role": "Software and hardware engineer: firmware, backend and dashboard",
+  "summary": "Prepaid smart meter and charging-station logger for OneGrid Energies: an ESP32 touchscreen meter with an ATmega328 metering co-processor that works offline first, plus the Node.js backend and admin dashboard that run the fleet at meters.onegridenergies.com.",
+  "description": "OneMeter controls the power at OneGrid charging stations and logs every device charged there, mostly OnePlastic solar lanterns. Version 3, the current one, pairs an ESP32 touchscreen (CYD) with an ATmega328 that runs HLW8032 metering, the relay and a watchdog over I2C. The meter keeps working without internet: readings and charging logs are stored on an SD card with an RTC, synced later with idempotent record IDs, and an offline list of device IDs lets staff log devices without a connection. Customers can be activated offline with time-based one-time codes. The Node.js/Express/MongoDB backend and a single-page admin dashboard manage meters, devices, top-ups, weekly deactivation, records with Excel export, analytics and signed firmware releases. The repository keeps every hardware generation, from the standalone v1 token meter to v3.",
   "highlights": [
-    "Supports over-the-air updates",
-    "Uses a Touch-Screen Display ",
-    "Supports offline data logging for unstable internet",
-    "Uses TOTP token generation for offline device activation"
+    "ESP32 touchscreen meter + ATmega328 HLW8032 co-processor over I2C, with a 4-second watchdog",
+    "Works offline first: SD-card storage, RTC timestamps and idempotent sync when the connection returns",
+    "Offline activation with TOTP codes and a replay guard; engineering PIN synced both ways and stored encrypted (AES-256-GCM)",
+    "Over-the-air updates signed with ECDSA P-256 in the admin's browser, with per-meter targeting and rollback reports",
+    "Admin dashboard: fleet overview, meter detail charts, device analytics by category, records with Excel export, light and dark themes, phone layout",
+    "Relay-fault detection and a configurable weekly deactivation schedule reported by each meter"
   ],
   "image": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792345803/portfolio/j0uenhsmvx1a7eqmyci5.jpg",
   "image_style": "photo",
@@ -27,9 +29,55 @@
       "media": "https://res.cloudinary.com/dancbdjjj/image/upload/v1792345820/portfolio/wyr27xy2ipzi0kmgufvy.jpg",
       "caption": "",
       "alt": ""
+    },
+    {
+      "media": "images/onemeter-dashboard-overview.jpg",
+      "caption": "Admin dashboard: fleet overview with energy and devices charged over 14 days",
+      "alt": "Admin dashboard: fleet overview with energy and devices charged over 14 days"
+    },
+    {
+      "media": "images/onemeter-dashboard-meters.jpg",
+      "caption": "Meters: status, relay, prepaid balance, last seen and firmware for every meter",
+      "alt": "Meters: status, relay, prepaid balance, last seen and firmware for every meter"
+    },
+    {
+      "media": "images/onemeter-dashboard-meter-detail.jpg",
+      "caption": "One meter: live values, activation, weekly schedule and energy history",
+      "alt": "One meter: live values, activation, weekly schedule and energy history"
+    },
+    {
+      "media": "images/onemeter-dashboard-analytics.jpg",
+      "caption": "Analytics: devices charged per day by category, week on week",
+      "alt": "Analytics: devices charged per day by category, week on week"
+    },
+    {
+      "media": "images/onemeter-dashboard-analytics-dark.jpg",
+      "caption": "Dark theme",
+      "alt": "Dark theme"
+    },
+    {
+      "media": "images/onemeter-dashboard-mobile.jpg",
+      "caption": "Phone layout",
+      "alt": "Phone layout"
     }
   ],
   "files": [],
-  "tags": [],
-  "links": []
+  "tags": [
+    "ESP32",
+    "ATmega328",
+    "HLW8032",
+    "Arduino",
+    "FreeRTOS",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "OTA updates",
+    "TOTP"
+  ],
+  "links": [
+    {
+      "label": "Meters dashboard",
+      "url": "https://meters.onegridenergies.com"
+    }
+  ]
 }

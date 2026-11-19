@@ -1,0 +1,81 @@
+{
+  "name": "Eneon Tunnels",
+  "published": true,
+  "on_resume": false,
+  "featured": false,
+  "order": 3,
+  "categories": [
+    "backend",
+    "web",
+    "embedded"
+  ],
+  "year": "2026",
+  "role": "Founder and engineer, Eneon Technologies: built end to end",
+  "summary": "Remote access for IoT and edge devices: open the web apps on gateways, Raspberry Pis and computers, use a terminal in the browser, and share access with a link. No port forwarding, public IP address or VPN needed.",
+  "description": "Eneon Tunnels is Eneon Technologies' first product. A small Go agent on each device keeps one outgoing, encrypted WebSocket to the relay, so it works behind any router or mobile network and nothing on the device is exposed to the internet. From the dashboard, owners open ChirpStack, Node-RED, router pages or any web app on the device, start an SSH session in the browser (xterm.js, with a touch key bar for phones), talk to an Arduino or ESP32 over a serial console, restart or shut down the device, and watch RTSP or ESP32-CAM streams. Any TCP port can also be brought to a laptop with `eneon connect`. Access can be shared as a link with an optional password and expiry, or with teammates by email. One command installs the agent on Linux, Raspberry Pi, macOS or Windows. It then updates itself with signed releases and rolls back automatically if a new version can't reach the relay.",
+  "highlights": [
+    "Go relay and agent: one outgoing encrypted WebSocket per device, so it works behind NAT and mobile networks with no inbound ports",
+    "Web apps through the relay, SSH terminal in the browser, serial console, any TCP port via `eneon connect` / ProxyCommand",
+    "Sharing: per-app links with password and expiry, or per-device sharing by email limited to chosen ports",
+    "Signed self-updates for 6 platforms with automatic rollback; removing a device makes its agent uninstall itself",
+    "Accounts with email confirmation and password reset, per-user device limits, and an admin console"
+  ],
+  "image": "images/eneon-tunnels-dashboard.jpg",
+  "image_style": "photo",
+  "image_alt": "Eneon Tunnels device dashboard",
+  "gallery": [
+    {
+      "media": "images/eneon-tunnels-dashboard.jpg",
+      "caption": "Dashboard: devices, status and one-click web apps",
+      "alt": "Dashboard: devices, status and one-click web apps"
+    },
+    {
+      "media": "images/eneon-tunnels-terminal.jpg",
+      "caption": "SSH terminal in the browser on a phone, with a key bar",
+      "alt": "SSH terminal in the browser on a phone, with a key bar"
+    },
+    {
+      "media": "images/eneon-tunnels-share.jpg",
+      "caption": "Share one web app with a link, password and expiry",
+      "alt": "Share one web app with a link, password and expiry"
+    },
+    {
+      "media": "images/eneon-tunnels-landing.jpg",
+      "caption": "Landing page",
+      "alt": "Landing page"
+    },
+    {
+      "media": "images/eneon-tunnels-features.jpg",
+      "caption": "Features",
+      "alt": "Features"
+    },
+    {
+      "media": "images/eneon-tunnels-how.jpg",
+      "caption": "How it works: one command on the device, an outgoing encrypted connection",
+      "alt": "How it works: one command on the device, an outgoing encrypted connection"
+    },
+    {
+      "media": "images/eneon-tunnels-use-cases.jpg",
+      "caption": "Use cases",
+      "alt": "Use cases"
+    }
+  ],
+  "files": [],
+  "tags": [
+    "Go",
+    "WebSockets",
+    "SSH",
+    "xterm.js",
+    "MongoDB",
+    "Docker",
+    "Render",
+    "Ed25519",
+    "IoT"
+  ],
+  "links": [
+    {
+      "label": "Visit Eneon Tunnels",
+      "url": "https://tunnels.eneontechnologies.com"
+    }
+  ]
+}

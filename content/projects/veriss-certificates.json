@@ -1,0 +1,85 @@
+{
+  "name": "Veriss Certificates",
+  "published": true,
+  "on_resume": false,
+  "featured": false,
+  "order": 4,
+  "categories": [
+    "backend",
+    "web"
+  ],
+  "year": "2026",
+  "role": "Backend and full-stack engineer (IEU Africa): built end to end",
+  "summary": "Organizations design a certificate once, choose recipients from a spreadsheet, their Veriss Payments payers or their Veriss Forms respondents, pay per certificate, and every recipient gets a personalised PDF or image by email with a unique number anyone can verify.",
+  "description": "Veriss Certificates (certificates.veriss.co) has a drag-and-drop template editor with 15 sample designs and 14 bundled fonts. Recipient names, dates, numbers, QR codes, signatures and custom text are placed as percentages of the template, so the browser preview and the server render match exactly. Recipient lists come from CSV/Excel uploads with column mapping and row-by-row validation, from everyone who paid for a Veriss Payments service, or from a Veriss Forms form's responses. The app is itself a merchant of Veriss Payments: batches are paid through the public API checkout, with free credits that admins can grant. After payment, a background worker generates and emails each certificate, tracks delivery and retries failed emails without charging again. A public /verify page, opened from the QR code, shows whether a certificate is valid or revoked.",
+  "highlights": [
+    "Template editor with 15 sample designs: drag, resize and snap fields, undo/redo, live preview using the same layout code as the server",
+    "Recipients from CSV/Excel (name normalisation, duplicate and formula checks), Veriss Payments payers or Veriss Forms respondents",
+    "Pays through Veriss Payments' own API checkout, with reconciliation, refunds follow-up and admin-granted free credits",
+    "Background generation worker, per-recipient delivery tracking and automatic retries, with no repeat charge for resends",
+    "Unguessable certificate numbers (VC-26-XXXXX-XXXXX) and a public QR verification page"
+  ],
+  "image": "images/veriss-certificates-dashboard.jpg",
+  "image_style": "photo",
+  "image_alt": "Veriss Certificates dashboard",
+  "gallery": [
+    {
+      "media": "images/veriss-certificates-home.jpg",
+      "caption": "Veriss Certificates home page",
+      "alt": "Veriss Certificates home page"
+    },
+    {
+      "media": "images/veriss-certificates-dashboard.jpg",
+      "caption": "Overview: certificates issued, delivery rate, batches and payments",
+      "alt": "Overview: certificates issued, delivery rate, batches and payments"
+    },
+    {
+      "media": "images/veriss-certificates-samples.jpg",
+      "caption": "New template: start from one of 15 sample designs",
+      "alt": "New template: start from one of 15 sample designs"
+    },
+    {
+      "media": "images/veriss-certificates-batches.jpg",
+      "caption": "Batches with status, delivery progress and amount paid",
+      "alt": "Batches with status, delivery progress and amount paid"
+    },
+    {
+      "media": "images/veriss-certificates-batch.jpg",
+      "caption": "One batch: generation and email progress, payment and every certificate",
+      "alt": "One batch: generation and email progress, payment and every certificate"
+    },
+    {
+      "media": "images/veriss-certificates-list.jpg",
+      "caption": "Every certificate issued, searchable by name, email or number",
+      "alt": "Every certificate issued, searchable by name, email or number"
+    },
+    {
+      "media": "images/veriss-certificates-verify.jpg",
+      "caption": "Public verification page",
+      "alt": "Public verification page"
+    },
+    {
+      "media": "images/veriss-certificates-verify-mobile.jpg",
+      "caption": "Verification on a phone, opened from the QR code",
+      "alt": "Verification on a phone, opened from the QR code"
+    }
+  ],
+  "files": [],
+  "tags": [
+    "Node.js",
+    "Express 5",
+    "MongoDB",
+    "Vue 3",
+    "Tailwind CSS",
+    "Background jobs",
+    "PDF generation",
+    "Cloudinary",
+    "Brevo"
+  ],
+  "links": [
+    {
+      "label": "Visit site",
+      "url": "https://certificates.veriss.co"
+    }
+  ]
+}

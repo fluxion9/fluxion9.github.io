@@ -1,0 +1,79 @@
+{
+  "name": "M3tering Console",
+  "published": true,
+  "on_resume": false,
+  "featured": false,
+  "order": 1,
+  "categories": [
+    "web",
+    "backend",
+    "embedded"
+  ],
+  "year": "2026",
+  "role": "Open-source contributor (M3tering Protocol): UI and architecture revamp",
+  "summary": "Rebuilt the interface and core logic of the M3tering Protocol's service console, the gateway app that bills LoRaWAN smart meters on-chain: a themeable desktop-style UI, a central server that manages many gateways, and one-command deployment.",
+  "description": "M3tering Console runs on each LoRaWAN gateway. It reads meter reports from ChirpStack, decides whether each meter stays on based on on-chain revenue and price, replies to the meter, and publishes signed transactions to Arweave, Streamr and the prover. I redesigned its whole interface as a desktop-style workspace with windowed apps (Terminal over SSH, ChirpStack, Paint, Settings and UI extensions) in four themes, working on phones as well as desktops. I then added opt-in central and gateway roles: one central login reaches every site, while gateways only make outbound, authenticated connections and keep billing locally when central is away. Billing safety comes first: one durable owner per decision, uncertain outcomes held for reconciliation instead of retried, and no duplicate relay or billing effects. Delivered through upstream PRs #58–#63 (about 19,000 lines added).",
+  "highlights": [
+    "Redesigned the UI as a responsive desktop workspace: draggable, resizable windows, dock and launcher, four themes, touch gestures and keyboard control",
+    "Added central and managed-gateway roles: gateway enrollment, credential rotation and revocation, SSH and ChirpStack tunnels, and audit logs",
+    "Kept billing safe: atomic transactions and nonces, at-most-once publication, reconciliation of uncertain outcomes, and fail-closed relay decisions",
+    "Added signed, paired container updates with health checks and automatic rollback, plus a one-command auto-compose.sh deploy for every role",
+    "239 unit and integration tests and 28 Playwright browser tests"
+  ],
+  "image": "images/m3tering-console-retro-desktop.jpg",
+  "image_style": "photo",
+  "image_alt": "M3tering Console desktop in the Retro 8-Bit theme",
+  "gallery": [
+    {
+      "media": "images/m3tering-console-retro-desktop.jpg",
+      "caption": "Desktop workspace, Retro 8-Bit theme",
+      "alt": "Desktop workspace, Retro 8-Bit theme"
+    },
+    {
+      "media": "images/m3tering-console-settings.jpg",
+      "caption": "Settings: four desktop themes with live previews",
+      "alt": "Settings: four desktop themes with live previews"
+    },
+    {
+      "media": "images/m3tering-console-gateway-menu.jpg",
+      "caption": "Central server: switch between gateways and see each one's billing health",
+      "alt": "Central server: switch between gateways and see each one's billing health"
+    },
+    {
+      "media": "images/m3tering-console-manage-gateways.jpg",
+      "caption": "Central server: add, rename, rotate credentials for and revoke gateways",
+      "alt": "Central server: add, rename, rotate credentials for and revoke gateways"
+    },
+    {
+      "media": "images/m3tering-console-terminal.jpg",
+      "caption": "Terminal app over SSH, Windows-inspired theme",
+      "alt": "Terminal app over SSH, Windows-inspired theme"
+    },
+    {
+      "media": "images/m3tering-console-mobile.jpg",
+      "caption": "Phone layout",
+      "alt": "Phone layout"
+    }
+  ],
+  "files": [],
+  "tags": [
+    "TypeScript",
+    "Node.js",
+    "Express",
+    "Handlebars",
+    "WebSockets",
+    "SQLite",
+    "MQTT",
+    "ChirpStack",
+    "Ethers.js",
+    "Docker",
+    "Playwright",
+    "Jest"
+  ],
+  "links": [
+    {
+      "label": "M3tering/Console on GitHub",
+      "url": "https://github.com/M3tering/Console"
+    }
+  ]
+}

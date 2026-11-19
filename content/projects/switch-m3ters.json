@@ -1,0 +1,79 @@
+{
+  "name": "Switch M3TERS",
+  "published": true,
+  "on_resume": false,
+  "featured": false,
+  "order": 2,
+  "categories": [
+    "web",
+    "backend",
+    "embedded"
+  ],
+  "year": "2026",
+  "role": "Full-stack engineer: built end to end (API, dashboard, gateway agent)",
+  "summary": "Switch Electric's platform for managing meters, gateways and telemetry: a Go agent on each LoRaWAN gateway, a Node.js API and a React dashboard with live readings, analytics, reports, signed agent updates and firmware updates over the air.",
+  "description": "Switch M3TERS collects telemetry from Switch meters across LoRaWAN gateways. A Go agent on each gateway reads ChirpStack MQTT, keeps only registered meters on FPort 4, buffers to disk and forwards over HTTPS. The Node.js/Express API decodes the 97-byte Cumulus telemetry frame, stores raw events, measurements and hourly rollups in MongoDB, and streams updates to a React dashboard over Socket.IO. Ingestion is idempotent, and energy deltas survive meter restarts and late readings. End-to-end tests with the release binary covered two simulated meters, a 50-second API outage and an agent restart, with no lost or duplicated readings.",
+  "highlights": [
+    "Go gateway agent: MQTT filtering, disk-buffered delivery, systemd service, and Ed25519-signed self-updates for amd64, arm64 and armv7 with automatic rollback",
+    "Dashboard: live per-phase readings, history charts, analytics (consumption, demand, power quality, RSSI/SNR, reliability), CSV/PDF reports, light and dark themes",
+    "Firmware updates over the air: upload signed meter firmware and run ChirpStack FUOTA campaigns per gateway; meters confirm the new version in their telemetry",
+    "Security: separate admin and agent APIs, hashed gateway credentials, bcrypt, rate limits, Zod validation, roles and invitations, audit logs",
+    "No lost or duplicated readings through an API outage and an agent restart in end-to-end tests"
+  ],
+  "image": "images/switch-m3ters-overview.jpg",
+  "image_style": "photo",
+  "image_alt": "Switch M3TERS dashboard overview",
+  "gallery": [
+    {
+      "media": "images/switch-m3ters-overview.jpg",
+      "caption": "Network overview: gateways, meters, energy and telemetry at a glance",
+      "alt": "Network overview: gateways, meters, energy and telemetry at a glance"
+    },
+    {
+      "media": "images/switch-m3ters-meter.jpg",
+      "caption": "Meter detail: live per-phase readings from a Switch Cumulus meter",
+      "alt": "Meter detail: live per-phase readings from a Switch Cumulus meter"
+    },
+    {
+      "media": "images/switch-m3ters-analytics.jpg",
+      "caption": "Analytics: energy consumption, demand and breakdown by meter",
+      "alt": "Analytics: energy consumption, demand and breakdown by meter"
+    },
+    {
+      "media": "images/switch-m3ters-fuota.jpg",
+      "caption": "Firmware update campaign over LoRaWAN (FUOTA) to switch-cumulus 1.0.5",
+      "alt": "Firmware update campaign over LoRaWAN (FUOTA) to switch-cumulus 1.0.5"
+    },
+    {
+      "media": "images/switch-m3ters-agents.jpg",
+      "caption": "Agent management: gateway fleet, versions and signed remote updates",
+      "alt": "Agent management: gateway fleet, versions and signed remote updates"
+    },
+    {
+      "media": "images/switch-m3ters-dark.jpg",
+      "caption": "Dark theme",
+      "alt": "Dark theme"
+    },
+    {
+      "media": "images/switch-m3ters-mobile.jpg",
+      "caption": "Phone layout",
+      "alt": "Phone layout"
+    }
+  ],
+  "files": [],
+  "tags": [
+    "React",
+    "Vite",
+    "Recharts",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Socket.IO",
+    "Go",
+    "MQTT",
+    "ChirpStack",
+    "LoRaWAN FUOTA",
+    "Ed25519"
+  ],
+  "links": []
+}

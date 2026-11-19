@@ -1,0 +1,54 @@
+{
+  "name": "Switch Cumulus",
+  "published": true,
+  "on_resume": false,
+  "featured": false,
+  "order": 3,
+  "categories": [
+    "embedded",
+    "hardware"
+  ],
+  "year": "2026",
+  "role": "Firmware engineer: lead developer",
+  "summary": "Firmware for Switch Electric's three-phase LoRaWAN prepaid energy meter on the STM32WL55: Ed25519-signed usage reports, remote load control, rich telemetry and fail-safe firmware updates over the air.",
+  "description": "Switch Cumulus measures energy with an ATM90E36A metering IC and reports Ed25519-signed, nonce-protected usage readings over LoRaWAN (OTAA, Class C). A backend can switch the customer's load through a relay with downlinks. A custom bootloader installs signed firmware updates sent over LoRaWAN FUOTA, survives power cuts mid-install and rolls back automatically if the new firmware cannot join the network. Optional FPort 4 telemetry carries every phase's voltage, current, active and reactive power, power factor, neutral current, frequency and temperature for the Switch M3TERS dashboard.",
+  "highlights": [
+    "Signed-image bootloader: backup, power-cut-safe install, automatic rollback, downgrades refused",
+    "Device-unique Ed25519 key generated from the hardware TRNG; signed reports with server-issued nonces for replay protection",
+    "Three-phase metering with selectable phase mode, run-time PGA settings and guided serial calibration",
+    "Reliability: no heap, bounds-safe printf, stack guard, crash reports, watchdog and automatic LoRaWAN re-join"
+  ],
+  "image": "images/switch-cumulus-diagram.jpg",
+  "image_style": "photo",
+  "image_alt": "Switch Cumulus system diagram",
+  "gallery": [
+    {
+      "media": "images/switch-cumulus-diagram.jpg",
+      "caption": "System overview: ATM90E36A, external flash, relay, STM32WL55 and ChirpStack",
+      "alt": "System overview: ATM90E36A, external flash, relay, STM32WL55 and ChirpStack"
+    },
+    {
+      "media": "images/switch-m3ters-meter.jpg",
+      "caption": "Live three-phase telemetry from a Cumulus meter in the Switch M3TERS dashboard",
+      "alt": "Live three-phase telemetry from a Cumulus meter in the Switch M3TERS dashboard"
+    },
+    {
+      "media": "images/switch-m3ters-fuota.jpg",
+      "caption": "Over-the-air update of two Cumulus meters to firmware 1.0.5",
+      "alt": "Over-the-air update of two Cumulus meters to firmware 1.0.5"
+    }
+  ],
+  "files": [],
+  "tags": [
+    "C",
+    "STM32WL55",
+    "ATM90E36A",
+    "LoRaWAN",
+    "FUOTA",
+    "Ed25519",
+    "Bootloader",
+    "CMake",
+    "ChirpStack"
+  ],
+  "links": []
+}

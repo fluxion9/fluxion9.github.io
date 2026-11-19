@@ -1,0 +1,43 @@
+{
+  "name": "Switch Maxwell",
+  "published": true,
+  "on_resume": false,
+  "featured": false,
+  "order": 4,
+  "categories": [
+    "embedded",
+    "hardware"
+  ],
+  "year": "2024-2026",
+  "role": "Firmware engineer: lead developer",
+  "summary": "Firmware for a single-phase LoRaWAN smart energy meter on The Things Industries' Generic Node SE (STM32WL55), with an STM32G030 current co-processor, signed energy reports and remote load control.",
+  "description": "Switch Maxwell measures RMS voltage on the STM32WL55's ADC and current through a dedicated STM32G030 peak-detector co-processor over I2C, then computes power and energy (kWh). Each meter has its own Ed25519 identity, and every energy report is signed and bound to a server-issued nonce so the backend can verify where a reading came from and reject replays. Energy the server has not acknowledged carries over to the next report. Downlinks switch the isolator, change the reporting interval, set the nonce and location, or reboot the meter. Firmware updates arrive over LoRaWAN FUOTA and are installed by a signed-image bootloader with rollback.",
+  "highlights": [
+    "Two-MCU design: STM32WL55 meter firmware plus an STM32G030 current peak detector over I2C",
+    "Ed25519-signed, nonce-bound energy reports with carry-over of unacknowledged energy",
+    "Firmware updates over the air (ChirpStack FUOTA) with a signed-image bootloader, rollback and product checks",
+    "Self-healing link: automatic re-registration and re-join, crash protection, bench self-test"
+  ],
+  "image": "images/switch-maxwell-diagram.jpg",
+  "image_style": "photo",
+  "image_alt": "Switch Maxwell system diagram",
+  "gallery": [
+    {
+      "media": "images/switch-maxwell-diagram.jpg",
+      "caption": "System overview: voltage sense, STM32G030 current co-processor, relay, Generic Node SE and ChirpStack",
+      "alt": "System overview: voltage sense, STM32G030 current co-processor, relay, Generic Node SE and ChirpStack"
+    }
+  ],
+  "files": [],
+  "tags": [
+    "C",
+    "STM32WL55",
+    "STM32G030",
+    "Generic Node SE",
+    "LoRaWAN",
+    "FUOTA",
+    "Ed25519",
+    "I2C"
+  ],
+  "links": []
+}

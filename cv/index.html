@@ -76,6 +76,16 @@
       <h2>Experience</h2>
       <article class="entry">
         <div class="entry-head">
+          <h3>Founder <span class="entry-org">· Eneon Technologies</span></h3>
+          <span class="entry-date">Enugu, Nigeria · Jul 2026 – Present</span>
+        </div>
+        <ul>
+          <li>Lead hardware, firmware and software engineering for client projects.</li>
+          <li>Built Eneon Tunnels, a remote-access platform for IoT and edge devices.</li>
+        </ul>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
           <h3>Backend Engineer <span class="entry-org">· IEU Africa</span></h3>
           <span class="entry-date">Remote · 2025 – Present</span>
         </div>
@@ -154,6 +164,51 @@
       </article>
       <article class="entry">
         <div class="entry-head">
+          <h3>Eneon Tunnels <span class="entry-org">· Founder and engineer, Eneon Technologies: built end to end</span></h3>
+          <span class="entry-date"><a href="https://tunnels.eneontechnologies.com">tunnels.eneontechnologies.com</a></span>
+        </div>
+        <p>Eneon Tunnels is Eneon Technologies' first product. A small Go agent on each device keeps one outgoing, encrypted WebSocket to the relay, so it works behind any router or mobile network and nothing on the device is exposed to the internet. From the dashboard, owners open ChirpStack, Node-RED, router pages or any web app on the device, start an SSH session in the browser (xterm.js, with a touch key bar for phones), talk to an Arduino or ESP32 over a serial console, restart or shut down the device, and watch RTSP or ESP32-CAM streams. Any TCP port can also be brought to a laptop with `eneon connect`. Access can be shared as a link with an optional password and expiry, or with teammates by email. One command installs the agent on Linux, Raspberry Pi, macOS or Windows. It then updates itself with signed releases and rolls back automatically if a new version can't reach the relay.</p>
+        <ul>
+          <li>Go relay and agent: one outgoing encrypted WebSocket per device, so it works behind NAT and mobile networks with no inbound ports</li>
+          <li>Web apps through the relay, SSH terminal in the browser, serial console, any TCP port via `eneon connect` / ProxyCommand</li>
+          <li>Sharing: per-app links with password and expiry, or per-device sharing by email limited to chosen ports</li>
+          <li>Signed self-updates for 6 platforms with automatic rollback; removing a device makes its agent uninstall itself</li>
+          <li>Accounts with email confirmation and password reset, per-user device limits, and an admin console</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> Go, WebSockets, SSH, xterm.js, MongoDB, Docker, Render, Ed25519, IoT</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Veriss Certificates <span class="entry-org">· Backend and full-stack engineer (IEU Africa): built end to end</span></h3>
+          <span class="entry-date"><a href="https://certificates.veriss.co">certificates.veriss.co</a></span>
+        </div>
+        <p>Veriss Certificates (certificates.veriss.co) has a drag-and-drop template editor with 15 sample designs and 14 bundled fonts. Recipient names, dates, numbers, QR codes, signatures and custom text are placed as percentages of the template, so the browser preview and the server render match exactly. Recipient lists come from CSV/Excel uploads with column mapping and row-by-row validation, from everyone who paid for a Veriss Payments service, or from a Veriss Forms form's responses. The app is itself a merchant of Veriss Payments: batches are paid through the public API checkout, with free credits that admins can grant. After payment, a background worker generates and emails each certificate, tracks delivery and retries failed emails without charging again. A public /verify page, opened from the QR code, shows whether a certificate is valid or revoked.</p>
+        <ul>
+          <li>Template editor with 15 sample designs: drag, resize and snap fields, undo/redo, live preview using the same layout code as the server</li>
+          <li>Recipients from CSV/Excel (name normalisation, duplicate and formula checks), Veriss Payments payers or Veriss Forms respondents</li>
+          <li>Pays through Veriss Payments' own API checkout, with reconciliation, refunds follow-up and admin-granted free credits</li>
+          <li>Background generation worker, per-recipient delivery tracking and automatic retries, with no repeat charge for resends</li>
+          <li>Unguessable certificate numbers (VC-26-XXXXX-XXXXX) and a public QR verification page</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> Node.js, Express 5, MongoDB, Vue 3, Tailwind CSS, Background jobs, PDF generation, Cloudinary, Brevo</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Veriss Forms <span class="entry-org">· Backend and full-stack engineer (IEU Africa): built end to end</span></h3>
+          <span class="entry-date"><a href="https://forms.veriss.co">forms.veriss.co</a></span>
+        </div>
+        <p>Veriss Forms (forms.veriss.co) runs next to Veriss Payments and shares its database and organization accounts. The builder has 18 question types, per-type validation, drag-and-drop ordering, a live preview and a guard against losing unsaved changes. Forms can carry a Cloudinary banner, close themselves when a response target is reached, and show how many places are left. Changing questions after responses arrive starts a new form version, so earlier answers always display against the questions they answered. Respondents need no account and get a mobile-first form with client and server validation, upload progress and duplicate-safe submission backed by anti-spam checks. Organizations search, filter and page through responses, open them in a detail drawer and export genuine .xlsx or CSV files.</p>
+        <ul>
+          <li>18 question types, including file and image uploads, ratings, consent and date/time, each with its own validation settings</li>
+          <li>Form versions: editing a live form never corrupts earlier responses</li>
+          <li>Response targets that close the form automatically, with optional places-left display and email notifications</li>
+          <li>Duplicate-safe, rate-limited public submissions with honeypot and minimum-fill-time checks</li>
+          <li>Responses with dynamic columns, search, date filters, a detail drawer and .xlsx/CSV export</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> Node.js, Express 5, MongoDB, Vue 3, Tailwind CSS, Cloudinary, ExcelJS, Brevo</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
           <h3>Switch Cumulus <span class="entry-org">· Firmware engineer: lead developer</span></h3>
           <span class="entry-date">2026</span>
         </div>
@@ -198,19 +253,92 @@
       </article>
       <article class="entry">
         <div class="entry-head">
-          <h3>OneGrid Energies <span class="entry-org">· Developer</span></h3>
+          <h3>OneGrid Energies Website &amp; CMS <span class="entry-org">· Developer</span></h3>
           <span class="entry-date"><a href="https://onegridenergies.com">onegridenergies.com</a></span>
         </div>
-        <p>Built the OneGrid Energies website for a Nigerian clean energy company focused on renewable energy access, solar installations, recycling innovation, and community empowerment across underserved communities.</p>
-        <p class="entry-tech"><b>Tech:</b> Website Development, Frontend Development, Responsive Design, Clean Energy</p>
+        <p>The public site at onegridenergies.com is plain static HTML, one folder per page, so it can be hosted anywhere with no server. Staff edit it in a separate admin app on Render: page text, photos, videos, lists (gallery, partners, impact figures, solar plans, FAQ, reviews), contact details and SEO, with uploads going straight to Cloudinary. Each save commits the content as JSON to GitHub, and a GitHub Action rebuilds the pages from a single annotated template. The admin also has team accounts (Google, emailed link or password sign-in), an activity log and privacy-friendly visitor analytics.</p>
+        <ul>
+          <li>Custom CMS: edits commit JSON to GitHub, and a GitHub Action rebuilds and publishes the static pages</li>
+          <li>Editable fields are defined by data-cms annotations in one HTML template, with the admin schema generated from it</li>
+          <li>Sign-in with Google, emailed links or password; team roles and an activity log</li>
+          <li>Anonymous analytics: pages, sources, countries, devices, WhatsApp taps, plans chosen and forms sent</li>
+          <li>Light and dark themes, responsive layout and rich link previews</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> HTML, CSS, JavaScript, Node.js, MongoDB, GitHub Actions, Cloudinary, SEO</p>
       </article>
       <article class="entry">
         <div class="entry-head">
-          <h3>Veriss Payments</h3>
+          <h3>Veriss Payments <span class="entry-org">· Lead backend and full-stack engineer (IEU Africa)</span></h3>
           <span class="entry-date"><a href="https://payment.veriss.co">payment.veriss.co</a></span>
         </div>
-        <p>Fintech payment infrastructure for secure, seamless digital transactions. Focused on payment processing, transaction management, and scalable financial operations.</p>
-        <p class="entry-tech"><b>Tech:</b> Fullstack Development, Node.js, Express.js, Vue.js, MongoDB, Paystack API</p>
+        <p>Veriss Payments is the core of the Veriss platform at payment.veriss.co. Organizations add settlement bank accounts, which are verified with Paystack and become Paystack subaccounts. They then create payment services with an amount, a payment window, custom questions for payers and rules for who may pay: subscribers, the public, specific users or specific emails. Members and guests pay online and get receipts with a QR code that links to a public verification page. Organizations can also take payments from their own websites through an API checkout with signed requests, a verify API and signed webhooks, documented at /developers. One Express 5 app serves the JSON API and a Vue 3 + Tailwind frontend backed by MongoDB, and every amount is stored in kobo.</p>
+        <ul>
+          <li>Paystack subaccounts so money settles directly into each organization's bank account, with webhook and redirect confirmation plus scheduled reconciliation</li>
+          <li>Payment services for dues, events, levies, donations (fixed or flexible) and fundraisers that close automatically when the target is reached</li>
+          <li>API checkout for other websites: signed requests, hosted checkout, verify API, per-service signed webhooks and public developer docs</li>
+          <li>QR-verifiable receipts as one-page PDFs, Excel exports, yearly overviews and an activity feed</li>
+          <li>Rich link previews for shared service links, with Cloudinary banners and server-rendered meta tags</li>
+          <li>Single sign-on with Veriss Accounts, and member journeys handed over to Veriss Members</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> Node.js, Express 5, MongoDB, Mongoose, Paystack API, Vue 3, Tailwind CSS, JWT, Brevo, Cloudinary</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>OneGrid OneMeter <span class="entry-org">· Software and hardware engineer: firmware, backend and dashboard</span></h3>
+          <span class="entry-date"><a href="https://meters.onegridenergies.com">meters.onegridenergies.com</a></span>
+        </div>
+        <p>OneMeter controls the power at OneGrid charging stations and logs every device charged there, mostly OnePlastic solar lanterns. Version 3, the current one, pairs an ESP32 touchscreen (CYD) with an ATmega328 that runs HLW8032 metering, the relay and a watchdog over I2C. The meter keeps working without internet: readings and charging logs are stored on an SD card with an RTC, synced later with idempotent record IDs, and an offline list of device IDs lets staff log devices without a connection. Customers can be activated offline with time-based one-time codes. The Node.js/Express/MongoDB backend and a single-page admin dashboard manage meters, devices, top-ups, weekly deactivation, records with Excel export, analytics and signed firmware releases. The repository keeps every hardware generation, from the standalone v1 token meter to v3.</p>
+        <ul>
+          <li>ESP32 touchscreen meter + ATmega328 HLW8032 co-processor over I2C, with a 4-second watchdog</li>
+          <li>Works offline first: SD-card storage, RTC timestamps and idempotent sync when the connection returns</li>
+          <li>Offline activation with TOTP codes and a replay guard; engineering PIN synced both ways and stored encrypted (AES-256-GCM)</li>
+          <li>Over-the-air updates signed with ECDSA P-256 in the admin's browser, with per-meter targeting and rollback reports</li>
+          <li>Admin dashboard: fleet overview, meter detail charts, device analytics by category, records with Excel export, light and dark themes, phone layout</li>
+          <li>Relay-fault detection and a configurable weekly deactivation schedule reported by each meter</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> ESP32, ATmega328, HLW8032, Arduino, FreeRTOS, Node.js, Express, MongoDB, OTA updates, TOTP</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Veriss Members <span class="entry-org">· Full-stack engineer (IEU Africa): built end to end</span></h3>
+          <span class="entry-date"><a href="https://members.veriss.co">members.veriss.co</a></span>
+        </div>
+        <p>Veriss Members (members.veriss.co) gives members an overview of what they paid this year and in total, payments that are ready to pay, their payment history and receipts with a QR code anyone can scan to verify. They can also find organizations by name, email or location and join or leave them. It has its own API over the shared Veriss database and applies the same rules Veriss Payments uses for members. Taking money stays in Veriss Payments: the Pay button opens the service there in member mode, single sign-on signs the member in, and the receipt opens back in Members.</p>
+        <ul>
+          <li>Overview of yearly and all-time payments, payments ready to pay, and organizations</li>
+          <li>Receipts with QR verification; payment history filtered by status</li>
+          <li>Find, join and leave organizations, with Veriss Payments' counters and activity feed kept consistent</li>
+          <li>Sign-in only through Veriss Accounts (OAuth-style code flow); Vue 3 single-page app with light and dark themes</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> Node.js, Express, MongoDB, Vue 3, SSO</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Veriss Accounts &amp; Admin <span class="entry-org">· Backend engineer (IEU Africa): platform identity and operations</span></h3>
+          <span class="entry-date"><a href="https://veriss.co">veriss.co</a></span>
+        </div>
+        <p>Veriss Accounts (accounts.veriss.co) handles sign-up, sign-in, email verification and password resets for the whole platform. It uses the OAuth 2.0 authorization-code flow, with single-use codes that are bound to the app and its state, valid for 60 seconds and stored only as SHA-256 hashes. Like Google, one browser can hold up to five accounts with an account chooser, and users can sign out of one account, the device or everywhere. Veriss Admin (admin.veriss.co) replaced the separate admin pages each app used to have: one console with its own admin logic for payments (organizations, members, services, fees), forms (pause, close or restore with logged reasons) and certificates (batches, revocations, fees, free credits), plus team management. Each app has its own JWT secret and a shared token-revocation list.</p>
+        <ul>
+          <li>Single sign-on across Payments, Forms, Certificates and Members with an OAuth-style code flow</li>
+          <li>Account chooser for up to 5 accounts per browser, and sign out per account, per device or everywhere</li>
+          <li>One admin console with role-based actions (admin / super-admin), required reasons and activity logs</li>
+          <li>Platform overview: collections, platform revenue, organizations, members, forms and certificates in one place</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> Node.js, Express, MongoDB, OAuth 2.0, JWT, Vue 3, Security</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Eneon Technologies Website &amp; CMS <span class="entry-org">· Founder and developer</span></h3>
+          <span class="entry-date"><a href="https://eneontechnologies.com">eneontechnologies.com</a></span>
+        </div>
+        <p>eneontechnologies.com is a framework-free static site. Its case studies cover projects such as the OneGrid meter, SafeGuard LPG and the Aegis pest-detection rover, alongside eight service areas from PCB design to AI and products such as Eneon Tunnels. Staff edit projects, products, services, page text and contact details in an admin app on Render. Saves commit JSON to GitHub, a GitHub Action rebuilds the pages, and the host deploys them. Photos and videos upload to Cloudinary, and the site crops and resizes them for each place they appear.</p>
+        <ul>
+          <li>Case-study page generated for every project, with galleries and filters by discipline</li>
+          <li>Content admin with Google, emailed-link or password sign-in, team roles and an activity log</li>
+          <li>Static output that can be hosted anywhere, rebuilt by GitHub Actions on each save</li>
+          <li>Light and dark themes, phone layout, WhatsApp contact and an enquiry form</li>
+        </ul>
+        <p class="entry-tech"><b>Tech:</b> HTML, CSS, JavaScript, Node.js, MongoDB, GitHub Actions, Cloudinary</p>
       </article>
       <article class="entry">
         <div class="entry-head">
@@ -251,19 +379,6 @@ An alarm that sounds too often is easy to ignore. SafeGuard LPG uses an adaptive
           <li> Embedded systems</li>
         </ul>
         <p class="entry-tech"><b>Tech:</b> Temperature, Hardware, Engineering, Software and Embedded System</p>
-      </article>
-      <article class="entry">
-        <div class="entry-head">
-          <h3>OneGrid OneMeter <span class="entry-org">· Software and Hardware Engineer </span></h3>
-          <span class="entry-date">2025-2026</span>
-        </div>
-        <p>Smart Energy's metering for OneGrid charging stations: a prepaid meter that switches a load, logs device charging (oneplastic lanterns and other devices), and reports to an online dashboard.</p>
-        <ul>
-          <li>Supports over-the-air updates</li>
-          <li>Uses a Touch-Screen Display </li>
-          <li>Supports offline data logging for unstable internet</li>
-          <li>Uses TOTP token generation for offline device activation</li>
-        </ul>
       </article>
     </section>
 
